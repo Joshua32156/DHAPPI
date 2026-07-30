@@ -1,6 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import { Phone, Mail, MapPin, Linkedin, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -38,8 +36,8 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: LinkedInIcon, href: "#", name: "LinkedIn" },
-    { icon: FacebookIcon, href: "#", name: "Facebook" },
+    { icon: Linkedin, href: "#", name: "LinkedIn" },
+    { icon: Facebook, href: "#", name: "Facebook" },
   ];
 
   return (

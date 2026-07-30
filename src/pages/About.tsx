@@ -2,9 +2,7 @@ import { ArrowRight, Shield, Target, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import aboutHeader from '@/assets/about-header.jpg';
-import GavelIcon from '@mui/icons-material/Gavel';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import { Gavel, Briefcase, TrendingUp } from 'lucide-react';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,20 +11,20 @@ import Timeline from '@/components/Timeline';
 const About = () => {
   const values = [
     {
-      icon: GavelIcon,
-      title: "Éthique",
-      description: "Engagement ferme envers la confidentialité et l'intégrité professionnelle"
+      title: "Excellence Juridique",
+      description: "Une maîtrise approfondie du droit combinée à une compréhension fine de vos enjeux business.",
+      icon: Gavel,
     },
     {
-      icon: TrendingUpIcon,
-      title: "Efficacité ",
-      description: "Nous vous apportons des solutions juridiques rapides et pragmatiques."
+      title: "Vision Stratégique",
+      description: "Au-delà du droit, nous vous accompagnons dans vos décisions stratégiques les plus complexes.",
+      icon: TrendingUp,
     },
     {
-      icon: BusinessCenterIcon,
-      title: "Professionnalisme",
-      description: "Nous mettons notre expertise au service de vos besoins."
-    }
+      title: "Partenaire de Confiance",
+      description: "Une relation basée sur la transparence, la réactivité et la confidentialité absolue.",
+      icon: Briefcase,
+    },
   ];
 
   return (
@@ -140,8 +138,8 @@ const About = () => {
             {values.map((value, index) => (
               <Card key={index} className="text-center premium-scale">
                 <CardContent className="pt-8">
-                  <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="h-8 w-8 text-secondary-foreground" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
+                    <value.icon className="w-6 h-6 text-primary group-hover:text-white" />
                   </div>
                   <h3 className="text-xl font-heading font-bold text-primary mb-4">
                     {value.title}
