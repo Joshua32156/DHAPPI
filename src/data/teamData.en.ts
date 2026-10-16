@@ -3,7 +3,9 @@
 // (les images, emails et liens restent ceux de teamData.ts).
 // Un champ absent ici s'affiche en français.
 
-export const teamDataEn: Record<string, Record<string, unknown>> = {
+import type { TeamMemberTranslation } from "./types";
+
+export const teamDataEn: Record<string, TeamMemberTranslation> = {
   "adamou-mfonzie": {
     role: "CEMAC Certified Tax Adviser",
     description:

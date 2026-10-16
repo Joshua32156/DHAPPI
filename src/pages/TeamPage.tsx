@@ -18,6 +18,7 @@ interface TeamMember {
 import { getTeamData } from "@/data/team";
 import { useLanguage } from "@/i18n/LanguageContext";
 import teamHero from "@/assets/team-hero.webp";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const TeamPage = () => {
   const { lang, t } = useLanguage();
@@ -26,7 +27,7 @@ const TeamPage = () => {
   const team = Object.entries(teamData).map(([slug, data]) => ({
     name: data.name,
     role: data.role,
-    speciality: data.expertise && data.expertise.length > 0 ? data.expertise[0] : "",
+    speciality: data.speciality ?? "",
     image: data.image,
     description: data.description || (data.shortDescription ? (data.shortDescription.length > 100 ? data.shortDescription.substring(0, 100) + "..." : data.shortDescription) : ""),
     link: `/team/${slug}`,
@@ -120,7 +121,7 @@ const TeamPage = () => {
                   <Link to={member.link}>
                     <Card className="h-full">
                       <div className="relative">
-                        <img
+                        <ImageWithSkeleton
                           src={member.image}
                           loading="lazy"
                           decoding="async"

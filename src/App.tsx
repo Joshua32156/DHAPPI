@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { lazy, Suspense } from "react";
 import { LanguageProvider } from "./i18n/LanguageContext";
+import PageSkeleton from "./components/PageSkeleton";
 
 
 // Lazy loading des composants
@@ -23,18 +24,11 @@ const CareersPage = lazy(() => import("./pages/CareersPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const TeamMemberProfile = lazy(() => import("./pages/TeamMemberProfile"));
 
-// Composant de loading
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-  </div>
-);
-
 const App = () => (
   <LanguageProvider>
     <BrowserRouter>
       <ScrollToTop />
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/a-propos" element={<About />} />

@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import aboutHeader from '@/assets/about-header.webp';
 import { useLanguage } from '@/i18n/LanguageContext';
 import contactHero from "@/assets/hero-law-firm-2.webp";
+import { IframeWithSkeleton } from "@/components/ui/iframe-with-skeleton";
 
 const ContactPage = () => {
   const { t } = useLanguage();
@@ -199,8 +200,8 @@ const ContactPage = () => {
                 {/* <h3 className="text-xl font-heading font-bold text-primary mb-4">
                   Localisation
                 </h3> */}
-                <div className="w-full h-64 bg-muted rounded-lg overflow-hidden shadow-lg">
-                  <iframe
+                <div className="relative w-full h-64 bg-muted rounded-lg overflow-hidden shadow-lg">
+                  <IframeWithSkeleton
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8234567890123!2d9.7043!3d4.0511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMDMnMDQuMCJOIDnCsDQyJzE1LjUiRQ!5e0!3m2!1sfr!2scm!4v1234567890123!5m2!1sfr!2scm&q=341+rue+École+Primaire+Dominique+Savio,+Bonapriso,+Douala,+Cameroun"
                     width="100%"
                     height="100%"
@@ -209,7 +210,7 @@ const ContactPage = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title={t("Localisation du Cabinet D.HAPPI - Douala", "D.HAPPI Firm location - Douala")}
-                  ></iframe>
+                  />
                 </div>
               </div>
             </div>

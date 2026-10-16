@@ -22,6 +22,15 @@ import aboutHeader from "@/assets/about-header.webp";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+// Ordre identique au tableau `expertises` ci-dessous (sert aux liens #ancre du menu)
+const EXPERTISE_IDS = [
+  "conseil-juridique",
+  "contentieux",
+  "conformite-legale-reglementaire",
+  "changes-investissements",
+  "fiscalite",
+];
+
 const ExpertisePage = () => {
   const [activeExpertise, setActiveExpertise] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
@@ -451,9 +460,7 @@ const ExpertisePage = () => {
     if (hash) {
       // Extraire l'ID de l'expertise du hash (exemple: #conseil-juridique)
       const expertiseId = hash.replace("#", "");
-      const expertiseIndex = expertises.findIndex(
-        (exp) => exp.id === expertiseId
-      );
+      const expertiseIndex = EXPERTISE_IDS.indexOf(expertiseId);
 
       if (expertiseIndex !== -1) {
         setActiveExpertise(expertiseIndex);

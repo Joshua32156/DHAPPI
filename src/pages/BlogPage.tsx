@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import com from '@/assets/com.webp';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const BlogPage = () => {
   const { t } = useLanguage();
@@ -199,7 +200,7 @@ const BlogPage = () => {
                 {filtered.map((article) => (
                   <Card key={article.id} className="premium-scale overflow-hidden">
                     <div className="relative">
-                      <img
+                      <ImageWithSkeleton
                         src={article.image}
                         loading="lazy"
                         decoding="async"

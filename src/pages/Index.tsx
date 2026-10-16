@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Us from "@/assets/us.webp";
 import {Link} from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -40 },
@@ -98,8 +99,8 @@ const Index = () => {
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  <div className="w-full h-[28rem] md:h-auto aspect-[3/4] bg-gray-200 rounded-3xl border border-white/50 shadow-xl shadow-blue-100/20 overflow-hidden flex items-center justify-center">
-                    <img
+                  <div className="w-full h-[28rem] md:h-auto aspect-[3/4] bg-gray-200 rounded-3xl border border-white/50 shadow-xl shadow-blue-100/20 relative overflow-hidden flex items-center justify-center">
+                    <ImageWithSkeleton
                       src={Us}
                       loading="lazy"
                       decoding="async"

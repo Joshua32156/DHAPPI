@@ -6,6 +6,7 @@ import lionel from "@/assets/LIONEL NGADJUI.avif";
 import djontu from "@/assets/ARNOLD KAMDEM.avif";
 import arnold from "@/assets/TeamImages/Arnold Kamdem.avif";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const Team = () => {
   const { t } = useLanguage();
@@ -57,12 +58,12 @@ const Team = () => {
               <div className="bg-card rounded-xl overflow-hidden shadow-card-premium premium-scale h-full">
                 {/* Photo */}
                 <div className="relative overflow-hidden">
-                  <img
+                  <ImageWithSkeleton
                     src={member.image}
                     loading="lazy"
                     decoding="async"
                     alt={member.name}
-                    className="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-64 object-cover object-top group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 

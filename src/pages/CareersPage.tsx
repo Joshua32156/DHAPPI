@@ -13,6 +13,7 @@ import interprise from "@/assets/enterprise.webp";
 import aboutHeader from "@/assets/about-header.webp";
 import career from "@/assets/carriere.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const CareersPage = () => {
   const { t } = useLanguage();
@@ -150,12 +151,12 @@ const CareersPage = () => {
                 >
                   {/* Partie image avec zoom au hover */}
                   <div className="h-2/3 w-full relative overflow-hidden group">
-                    <img
+                    <ImageWithSkeleton
                       src={benefit.image}
                       loading="lazy"
                       decoding="async"
                       alt={benefit.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover group-hover:scale-110"
                     />
                   </div>
                   {/* Partie texte sur fond bleu, hauteur réduite */}

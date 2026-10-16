@@ -24,6 +24,8 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+      // Les textes français contiennent des espaces insécables volontaires (avant « : », « ; »…)
+      "no-irregular-whitespace": ["error", { skipStrings: true, skipTemplates: true }],
     },
   }
 );

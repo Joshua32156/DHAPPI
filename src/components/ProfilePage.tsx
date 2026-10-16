@@ -13,22 +13,10 @@ import {
 } from "@/components/ui/accordion";
 import fontteam from "@/assets/fondteam.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
+import type { TeamMember } from "@/data/types";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
-interface ExpertData {
-  name: string;
-  role: string;
-  speciality?: string;
-  grade?: string;
-  image: string;
-  shortDescription?: string;
-  longDescription: string;
-  expertiseAreas?: string[];
-  ParcoursAcadémique?: string[];
-  DistinctionsEtClassements?: string[];
-  Langue?: string[];
-  linkedin?: string;
-  email?: string;
-}
+type ExpertData = TeamMember;
 
 interface ProfilePageProps {
   expertData: ExpertData;
@@ -139,10 +127,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
 
               <div className="relative mt-8 flex justify-center lg:mt-0 lg:block lg:absolute lg:top-full lg:right-16 lg:-translate-y-1/2 z-10">
                 <motion.div
-                  className="w-56 h-72 lg:w-72 lg:h-96 overflow-hidden shadow-2xl bg-background rounded-none"
+                  className="relative w-56 h-72 lg:w-72 lg:h-96 overflow-hidden shadow-2xl bg-background rounded-none"
                   variants={imageVariants}
                 >
-                  <img
+                  <ImageWithSkeleton
                     src={image}
                     alt={name}
                     className="w-full h-full object-cover"

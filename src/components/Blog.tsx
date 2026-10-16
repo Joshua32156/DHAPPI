@@ -4,6 +4,8 @@ import covid from "@/assets/covid.avif";
 import focus from "@/assets/focus-special.webp";
 import congrat from "@/assets/congrat.avif";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
+import { IframeWithSkeleton } from "@/components/ui/iframe-with-skeleton";
 
 const Blog = () => {
   const { t } = useLanguage();
@@ -94,12 +96,12 @@ const Blog = () => {
               <div className="bg-card rounded-xl overflow-hidden shadow-card-premium premium-scale h-full">
                 {/* Image */}
                 <div className="relative overflow-hidden">
-                  <img
+                  <ImageWithSkeleton
                     src={article.image}
                     loading="lazy"
                     decoding="async"
                     alt={article.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
@@ -188,8 +190,8 @@ const Blog = () => {
         {/* Map Section */}
         <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
           <div className="bg-card overflow-hidden">
-            <div className="h-96 bg-muted">
-              <iframe
+            <div className="relative h-96 bg-muted">
+              <IframeWithSkeleton
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8234567890123!2d9.7043!3d4.0511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMDMnMDQuMCJOIDnCsDQyJzE1LjUiRQ!5e0!3m2!1sfr!2scm!4v1234567890123!5m2!1sfr!2scm&q=341+rue+École+Primaire+Dominique+Savio,+Bonapriso,+Douala,+Cameroun"
                 width="100%"
                 height="100%"

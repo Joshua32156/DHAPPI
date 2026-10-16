@@ -1,4 +1,5 @@
 // Auto-generated file containing all team members data
+import type { TeamMember } from './types';
 import adamou_adamoumfonzie from '@/assets/TeamImages/adamou.webp';
 import allyson_allysonmpondo from '@/assets/TeamImages/allyson.webp';
 import ariel_arielBolanga from '@/assets/TeamImages/ariel.webp';
@@ -22,7 +23,7 @@ import vanessa_vanessadehappi from '@/assets/VANESSA DE HAPPI.avif';
 import simon_SimonMoumbok from '@/assets/TeamImages/Simon.avif';
 import judicael_JudicaelNguelefack from '@/assets/TeamImages/Judickael.avif';
 
-export const teamData: Record<string, any> = {
+export const teamData: Record<string, TeamMember> = {
   "adamou-mfonzie": {
   name: "Adamou MFONZIE",
   role: "Expert Fiscal Agréé CEMAC",
