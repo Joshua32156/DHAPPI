@@ -21,6 +21,7 @@ import hiring from "@/assets/hiring.png";
 import aboutHeader from "@/assets/about-header.jpg";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 import { IconLeft } from "react-day-picker";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ExpertisePage = () => {
   const [activeExpertise, setActiveExpertise] = useState(0);
@@ -28,34 +29,39 @@ const ExpertisePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { t } = useLanguage();
+
   const expertises = [
     {
       id: "conseil-juridique",
-      title: "Conseil juridique",
+      title: t("Conseil juridique", "Legal Advisory"),
       icon: FileCheck,
       image: hiring2,
-      description:
+      description: t(
         "Accompagnement juridique personnalisé pour sécuriser vos décisions stratégiques et opérationnelles. Notre équipe vous guide dans toutes vos démarches avec une approche pragmatique et innovante.",
+        "Tailored legal support to secure your strategic and operational decisions. Our team guides you through every step with a pragmatic and innovative approach."
+      ),
       points: [
-        "Droit et gouvernance des sociétés",
-        "Droit commercial et commerce international",
-        "Investissement et financement",
-        "Droit du numérique et des TIC",
-        "Droit du travail et protection sociale",
-        "Droit du sport",
-        "PPP",
+        t("Droit et gouvernance des sociétés", "Corporate law and governance"),
+        t("Droit commercial et commerce international", "Commercial law and international trade"),
+        t("Investissement et financement", "Investment and finance"),
+        t("Droit du numérique et des TIC", "Digital and ICT law"),
+        t("Droit du travail et protection sociale", "Employment law and social protection"),
+        t("Droit du sport", "Sports law"),
+        t("PPP", "PPPs"),
       ],
       link: "/expertise/conseil-juridique",
-      longDescription: `
+      longDescription: t(
+        `
       **Droit et gouvernance des sociétés**
-      
+
       * Création des sociétés
       * Structuration des opérations sur le capital (augmentation et réduction de capital, investissement en capital, conversion des créances en capital, émission de valeurs mobilières composées ou subordonnées…)
       * Structuration des opérations de croissance organique (fusion et acquisition, scission, apport partiel d'actif, transformation) ou externe (joint-venture, consortium, succursale, bureau de représentation ou de liaison)
       * Assistance dans la gouvernance d'entreprise: secrétariat juridique des conseils d'administration et assemblées générales, audit des documents sociaux et des décisions des organes exécutifs, rédaction des conventions sociétaires
-      
+
       **Investissement et Financement**
-      
+
       * Étude de faisabilité juridique des projets
       * Négociation et structuration des opérations d'investissement
       * Négociation et rédaction des contrats d'investissement et de placement
@@ -63,44 +69,96 @@ const ExpertisePage = () => {
       * Revue de la documentation juridique des Financements structurés et syndiqués
       * Conseil sur les aspects juridiques des transactions de crédit-bail, SBLC et crédit documentaire
       * Assistance dans la gestion et les transferts d'actifs
-      
+
       **PPP et marchés publics**
-      
+
       * Négociation et rédaction des accords cadre de type BOT
       * Revue de la documentation juridique des projets structurants
       * Négociation et rédaction des contrats de construction clés en mains
       * Négociation et rédaction des contrats d'ingénierie et de Sous-traitance industrielle
       * Négociation et rédaction des conventions de concessions, d'affermage et Régies
-      
+
       **Droit commercial et commerce international**
-      
+
       * Conseil sur les aspects juridiques des transactions commerciales d'achat/vente internationale des marchandises, biens et services
       * Structuration des opérations de cession de fonds de commerce et cession groupée d'actifs
       * Négociation des garanties commerciales
       * Négociation et rédaction des contrats commerciaux (distribution, franchise, agence commerciale, représentation, fourniture, baux à usage professionnel, location-gérance)
-      
+
       **Droit du travail et relations sociales**
-      
+
       * Rédaction des contrats de travail et gestion de la mobilité internationale des travailleurs
       * Conseil sur tous les aspects juridiques de la sécurité et de la prévoyance sociales
       * Traitement de la paie
-      
+
       **Droit du numérique et des TIC**
-      
+
       * Conseil sur les aspects relatifs à la protection et à l'utilisation des données personnelles
       * Contrats de développement des plateformes et prestations de services informatiques
       * Conseil sur les aspects juridiques des NTIC
-      
+
       **Droit du sport**
-      
+
       * Création et agrément des sociétés et associations sportives
       * Négociation et rédaction des contrats sportifs
       * Assistance juridique des fédérations sportives
       `,
+        `
+      **Corporate law and governance**
+
+      * Company incorporation
+      * Structuring of capital transactions (capital increases and reductions, equity investment, debt-to-equity conversion, issuance of compound or subordinated securities…)
+      * Structuring of organic growth transactions (mergers and acquisitions, demergers, partial asset contributions, conversions) or external growth (joint ventures, consortia, branches, representative or liaison offices)
+      * Corporate governance assistance: company secretarial services for boards of directors and general meetings, audit of corporate records and executive body decisions, drafting of shareholder agreements
+
+      **Investment and Finance**
+
+      * Legal feasibility studies for projects
+      * Negotiation and structuring of investment transactions
+      * Negotiation and drafting of investment and placement agreements
+      * Legal structuring of fundraising and project finance
+      * Review of legal documentation for structured and syndicated financings
+      * Advice on the legal aspects of leasing, SBLC and documentary credit transactions
+      * Assistance with asset management and asset transfers
+
+      **PPPs and public procurement**
+
+      * Negotiation and drafting of BOT-type framework agreements
+      * Review of legal documentation for major infrastructure projects
+      * Negotiation and drafting of turnkey construction contracts
+      * Negotiation and drafting of engineering and industrial subcontracting agreements
+      * Negotiation and drafting of concession, lease (affermage) and management (régie) agreements
+
+      **Commercial law and international trade**
+
+      * Advice on the legal aspects of international sale and purchase transactions for goods, property and services
+      * Structuring of business transfers and bulk asset disposals
+      * Negotiation of commercial guarantees
+      * Negotiation and drafting of commercial contracts (distribution, franchising, commercial agency, representation, supply, commercial leases, lease-management)
+
+      **Employment law and labour relations**
+
+      * Drafting of employment contracts and management of international employee mobility
+      * Advice on all legal aspects of social security and welfare schemes
+      * Payroll processing
+
+      **Digital and ICT law**
+
+      * Advice on the protection and use of personal data
+      * Platform development and IT services agreements
+      * Advice on the legal aspects of new ICTs
+
+      **Sports law**
+
+      * Incorporation and accreditation of sports companies and associations
+      * Negotiation and drafting of sports contracts
+      * Legal assistance to sports federations
+      `
+      ),
       persons: [
         {
           name: "Vanessa de HAPPI",
-          post: "Responsable du Département Conseil",
+          post: t("Responsable du Département Conseil", "Head of the Advisory Department"),
           top: 70,
           right: 50,
           bottom: 0,
@@ -108,7 +166,7 @@ const ExpertisePage = () => {
         },
         {
           name: "Freedy NJOMGANG",
-          post: "Adjoint du Département Conseil",
+          post: t("Adjoint du Département Conseil", "Deputy, Advisory Department"),
           top: 60,
           right: -5,
         },
@@ -116,27 +174,30 @@ const ExpertisePage = () => {
     },
     {
       id: "contentieux",
-      title: "Contentieux",
+      title: t("Contentieux", "Litigation"),
       icon: Scale,
       image: contentieux,
-      description:
+      description: t(
         "Défense experte de vos intérêts devant toutes les juridictions nationales et internationales. Une de nos armes les plus puissantes est le dialogue.",
+        "Expert defence of your interests before all national and international courts. One of our most powerful weapons is dialogue."
+      ),
       points: [
-        "Contentieux civil et social",
-        "Contentieux des affaires et investissements",
-        "Contentieux maritime et douanier",
-        "Contentieux administratif et fiscal",
-        "Recouvrement des créances",
-        "Médiation et arbitrage des affaires",
-        "Droit pénal général et des affaires",
+        t("Contentieux civil et social", "Civil and employment litigation"),
+        t("Contentieux des affaires et investissements", "Business and investment litigation"),
+        t("Contentieux maritime et douanier", "Maritime and customs litigation"),
+        t("Contentieux administratif et fiscal", "Administrative and tax litigation"),
+        t("Recouvrement des créances", "Debt recovery"),
+        t("Médiation et arbitrage des affaires", "Business mediation and arbitration"),
+        t("Droit pénal général et des affaires", "General and business criminal law"),
       ],
       link: "/expertise/contentieux",
-      longDescription: `
+      longDescription: t(
+        `
       **Contentieux de large spectre**
-      
+
       * Contentieux civil et social
       * Contentieux des affaires
-      * Contentieux des investissements 
+      * Contentieux des investissements
       * Contentieux maritime et douanier
       * Contentieux administratif et fiscal
       * Contentieux de la banque et des assurances
@@ -145,17 +206,39 @@ const ExpertisePage = () => {
       * Restructuration et insolvabilité
       * Litiges fonciers et domaniaux
       * Médiation et arbitrage des affaires
-      
+
       **Droit pénal général et droit pénal des affaires**
-      
+
       * Conseil, assistance et représentation des parties civiles
       * Conseil et assistance des justiciables lors des garde-à-vue et auditions, enquêtes préliminaires et procédures d’instruction
       * Défense des justiciables devant les tribunaux de droit commun et les juridictions spécialisées
       `,
+        `
+      **Broad-spectrum litigation**
+
+      * Civil and employment litigation
+      * Business litigation
+      * Investment litigation
+      * Maritime and customs litigation
+      * Administrative and tax litigation
+      * Banking and insurance litigation
+      * Sports litigation
+      * Debt recovery
+      * Restructuring and insolvency
+      * Land and state property disputes
+      * Business mediation and arbitration
+
+      **General criminal law and business criminal law**
+
+      * Advice, assistance and representation of civil parties
+      * Advice and assistance to litigants during police custody and questioning, preliminary investigations and judicial investigation proceedings
+      * Defence of litigants before the ordinary courts and specialised courts
+      `
+      ),
       persons: [
         {
           name: "Lionel NGADJUI",
-          post: "Responsable du Département Contentieux ",
+          post: t("Responsable du Département Contentieux ", "Head of the Litigation Department"),
           top: 70,
           right: 50,
           bottom: 0,
@@ -163,7 +246,7 @@ const ExpertisePage = () => {
         },
         {
           name: "Glory HUAMBO",
-          post: "Responsable Adjoint du Département Contentieux",
+          post: t("Responsable Adjoint du Département Contentieux", "Deputy Head of the Litigation Department"),
           top: 60,
           right: -30,
           bottom: 0,
@@ -173,21 +256,24 @@ const ExpertisePage = () => {
     },
     {
       id: "conformite-legale-reglementaire",
-      title: "Conformité légale & réglementaire",
+      title: t("Conformité légale & réglementaire", "Legal & Regulatory Compliance"),
       icon: Shield,
       image: hiring2,
-      description:
+      description: t(
         "Solutions complètes pour assurer la conformité de votre entreprise aux réglementations en vigueur. Le mensonge donne des fleurs mais pas de fruits.",
+        "Comprehensive solutions to ensure your company complies with the regulations in force. A lie may bear flowers, but never fruit."
+      ),
       points: [
-        "Cartographie des risques légaux et réglementaires",
-        "Audit des processus de conformité",
-        "Élaboration et mise en œuvre des programmes",
-        "Formation et sensibilisation",
-        "Gestion du risque réglementaire",
-        "Assistance dans l'élaboration de rapports",
+        t("Cartographie des risques légaux et réglementaires", "Legal and regulatory risk mapping"),
+        t("Audit des processus de conformité", "Compliance process audit"),
+        t("Élaboration et mise en œuvre des programmes", "Design and implementation of programmes"),
+        t("Formation et sensibilisation", "Training and awareness"),
+        t("Gestion du risque réglementaire", "Regulatory risk management"),
+        t("Assistance dans l'élaboration de rapports", "Assistance with report preparation"),
       ],
       link: "/expertise/conformite-legale-reglementaire",
-      longDescription: `
+      longDescription: t(
+        `
 
       * Cartographie des risques légaux et réglementaires
       * Audit des processus de conformité
@@ -198,16 +284,31 @@ const ExpertisePage = () => {
       * Assistance dans l’élaboration de rapports destinés au conseil d’administration
       * Évaluation et mise à jour du programme de conformité
       `,
+        `
+
+      * Legal and regulatory risk mapping
+      * Compliance process audit
+      * Audit of contractual commitment management
+      * Support in regulatory risk management
+      * Design and implementation of compliance programmes
+      * Training and awareness for directors, executives and staff on the most critical legal and regulatory risks in the company's sector of activity
+      * Assistance in preparing reports for the board of directors
+      * Assessment and updating of the compliance programme
+      `
+      ),
       persons: [
         {
           name: "Vanessa de HAPPI",
-          post: "Responsable du Département Conformité legale et règlementaire ",
+          post: t(
+            "Responsable du Département Conformité legale et règlementaire ",
+            "Head of the Legal & Regulatory Compliance Department"
+          ),
           top: 70,
           right: 50,
         },
         {
           name: "Freedy NJOMGANG",
-          post: "Responsable Adjoint du Département Contentieux ",
+          post: t("Responsable Adjoint du Département Contentieux ", "Deputy Head of the Litigation Department"),
           top: 60,
           right: -30,
         },
@@ -215,21 +316,24 @@ const ExpertisePage = () => {
     },
     {
       id: "changes-investissements",
-      title: "Douanes, Changes & Investissements",
+      title: t("Douanes, Changes & Investissements", "Customs, Exchange & Investments"),
       icon: TrendingUp,
       image: douanes,
-      description:
+      description: t(
         "Expertise en réglementation des changes et accompagnement des investissements internationaux pour optimiser vos opérations financières.",
+        "Expertise in exchange control regulations and support for international investments to optimise your financial operations."
+      ),
       points: [
-        "Réglementation des changes",
-        "Investissements directs étrangers",
-        "Structuration d'opérations",
-        "Conseil en financement",
-        "Autorisations administratives",
-        "Opérations de change",
+        t("Réglementation des changes", "Exchange control regulations"),
+        t("Investissements directs étrangers", "Foreign direct investment"),
+        t("Structuration d'opérations", "Transaction structuring"),
+        t("Conseil en financement", "Financing advice"),
+        t("Autorisations administratives", "Administrative authorisations"),
+        t("Opérations de change", "Foreign exchange transactions"),
       ],
       link: "/expertise/changes-investissements",
-      longDescription: `
+      longDescription: t(
+        `
       Pour répondre à une demande croissante de nos clients locaux et internationaux, le Cabinet a mis sur pied une équipe Douanes, Changes et Investissement, chapeautée par un expert en droit des douanes CEMAC et du commerce extérieur, qui intervient dans les domaines suivant:
 
       * Conseil et contentieux douanier
@@ -242,16 +346,36 @@ const ExpertisePage = () => {
       *  Zone de Libre-Echange Continentale Africaine (ZLECAf)
       *  Formation du personnel
       `,
+        `
+      To meet growing demand from our local and international clients, the Firm has set up a Customs, Exchange and Investment team, led by an expert in CEMAC customs law and foreign trade, which operates in the following areas:
+
+      * Customs advisory and litigation
+      * Foreign trade
+      * International trade
+      *  CEMAC exchange control regulations
+      *  Transport law
+      *  Investment law
+      *  Audit and compliance of commercial, customs and foreign exchange operations
+      *  African Continental Free Trade Area (AfCFTA)
+      *  Staff training
+      `
+      ),
       persons: [
         {
           name: "Joel TENE TEKOU",
-          post: "Responsable du Département Douanes, Changes et Investissement",
+          post: t(
+            "Responsable du Département Douanes, Changes et Investissement",
+            "Head of the Customs, Exchange & Investment Department"
+          ),
           top: 70,
           right: 50,
         },
         {
           name: "Esther GONYOBE",
-          post: "Responsable du Département Douanes, Changes et Investissement",
+          post: t(
+            "Responsable du Département Douanes, Changes et Investissement",
+            "Head of the Customs, Exchange & Investment Department"
+          ),
           top: 60,
           right: -30,
         },
@@ -259,21 +383,24 @@ const ExpertisePage = () => {
     },
     {
       id: "fiscalite",
-      title: "Fiscalité",
+      title: t("Fiscalité", "Tax"),
       icon: Calculator,
       image: fiscalite,
-      description:
+      description: t(
         "Optimisation fiscale et accompagnement dans toutes vos problématiques fiscales nationales et internationales avec une expertise reconnue.",
+        "Tax optimisation and support with all your domestic and international tax matters, backed by recognised expertise."
+      ),
       points: [
-        "Conseil en fiscalité des entreprises",
-        "Fiscalité internationale",
-        "Contentieux fiscal",
-        "Optimisation fiscale",
-        "Contrôles fiscaux",
-        "TVA et droits de douane",
+        t("Conseil en fiscalité des entreprises", "Corporate tax advisory"),
+        t("Fiscalité internationale", "International tax"),
+        t("Contentieux fiscal", "Tax litigation"),
+        t("Optimisation fiscale", "Tax optimisation"),
+        t("Contrôles fiscaux", "Tax audits"),
+        t("TVA et droits de douane", "VAT and customs duties"),
       ],
       link: "/expertise/fiscalite",
-      longDescription: `
+      longDescription: t(
+        `
       Pour répondre à une demande croissante de nos clients locaux et internationaux et face aux multiples problématiques d’ordre fiscal et changement dans les textes de loi, au mois de septembre 2024, le Cabinet a mis sur pied un département Fiscalité, qui intervient principalement dans les domaines suivants:
 
       * Révision périodique de la comptabilité et de la conformité des pièces comptables justificatives ;
@@ -287,16 +414,31 @@ const ExpertisePage = () => {
       * Interaction avec les administrations fiscales ;
       * Accompagnement dans le cadre des investissements.
       `,
+        `
+      To meet growing demand from our local and international clients, and in response to numerous tax issues and changes in legislation, in September 2024 the Firm set up a Tax department, which operates mainly in the following areas:
+
+      * Periodic review of accounts and of the compliance of supporting accounting documents;
+      * Management of tax returns;
+      * Review of statistical and tax returns;
+      * Management of tax audits and tax litigation;
+      * Advice on tax optimisation and tax planning measures;
+      * Assistance with meeting monthly and annual reporting obligations;
+      * Establishment of tax monitoring;
+      * Ongoing assessment of sector-specific tax risks;
+      * Liaison with tax authorities;
+      * Support with investments.
+      `
+      ),
       persons: [
         {
           name: "Adamou MFONZIE",
-          post: "Responsable du Département Fiscalité",
+          post: t("Responsable du Département Fiscalité", "Head of the Tax Department"),
           top: 70,
           right: 50,
         },
         {
           name: "Russel NGAKO",
-          post: "Responsable Adjoint du Département Fiscalité",
+          post: t("Responsable Adjoint du Département Fiscalité", "Deputy Head of the Tax Department"),
           top: 60,
           right: -30,
         },
@@ -453,17 +595,17 @@ const ExpertisePage = () => {
         <section className="relative h-64 overflow-hidden">
           <img
             src={aboutHeader}
-            alt="À propos de D. Legal"
+            alt={t("Nos expertises — D. HAPPI Avocats", "Our expertise — D. HAPPI Attorneys")}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/60"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                Nos Expertises
+                {t("Nos Expertises", "Our Expertise")}
               </h1>
               <p className="text-xl md:text-2xl text-gray-200">
-                Plus de 40 ans d'expertise juridique
+                {t("Plus de 40 ans d'expertise juridique", "Over 40 years of legal expertise")}
               </p>
             </div>
           </div>
@@ -480,23 +622,21 @@ const ExpertisePage = () => {
                 className="text-center text-white"
               >
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                  Cibler là où cela compte
+                  {t("Cibler là où cela compte", "Focusing where it matters")}
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Nos avocats ont joué un rôle clé dans plusieurs des
-                  transactions les plus complexes et les plus marquantes sur le
-                  continent au cours de ces dernières années, en contribuant à
-                  la mise en place de structures contractuelles sur mesure et de
-                  solutions innovantes en matière d'accords de
-                  commercialisation.
+                  {t(
+                    "Nos avocats ont joué un rôle clé dans plusieurs des transactions les plus complexes et les plus marquantes sur le continent au cours de ces dernières années, en contribuant à la mise en place de structures contractuelles sur mesure et de solutions innovantes en matière d'accords de commercialisation.",
+                    "In recent years, our lawyers have played a key role in several of the most complex and significant transactions on the continent, helping to put in place bespoke contractual structures and innovative solutions for marketing agreements."
+                  )}
                 </p>
               </motion.div>
             </div>
-            <div className="relative flex flex-col items-center justify-center min-h-[700px] space-y-8">
+            <div className="relative flex flex-col items-center justify-center gap-6 lg:gap-8 lg:min-h-[700px]">
               {/* Conteneur de l'image avec les rectangles de personnes */}
               <div
-                className={`relative w-[500px] h-[500px] transition-all duration-500 ${
-                  showDetails ? "md:right-[-200px]" : "right-0"
+                className={`relative w-full max-w-[500px] aspect-square lg:w-[500px] lg:h-[500px] transition-all duration-500 ${
+                  showDetails ? "lg:right-[-200px]" : "right-0"
                 }`}
               >
                 <motion.img
@@ -518,7 +658,7 @@ const ExpertisePage = () => {
                       variants={personCardVariants}
                       initial="initial"
                       animate="animate"
-                      className="absolute p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-md max-w-[180px] text-left"
+                      className="absolute hidden lg:block p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-md max-w-[180px] text-left"
                       style={{
                         zIndex: 20,
                         top: person.top ? `${person.top * 4}px` : undefined,
@@ -541,6 +681,21 @@ const ExpertisePage = () => {
                   ))}
               </div>
 
+              {/* Mobile & tablette : responsables affichés sous l'image */}
+              {expertises[activeExpertise].persons && (
+                <div className="flex flex-wrap justify-center gap-3 lg:hidden w-full">
+                  {expertises[activeExpertise].persons.map((person, idx) => (
+                    <div
+                      key={activeExpertise + "-m-" + idx}
+                      className="p-3 bg-white rounded-lg shadow-md text-left border border-border/50"
+                    >
+                      <p className="font-bold text-secondary text-sm">{person.name}</p>
+                      <p className="text-xs text-muted-foreground">{person.post}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Titre et description - à gauche, compact */}
               <motion.div
                 key={`${activeExpertise}-${showDetails}`}
@@ -548,8 +703,8 @@ const ExpertisePage = () => {
                 whileInView="animate"
                 variants={contentVariants}
                 viewport={{ once: true, amount: 0.3 }}
-                className={`absolute left-8 top-1/4 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg z-10 ${
-                  showDetails ? "max-w-md h-96 overflow-y-auto" : "max-w-sm"
+                className={`relative w-full lg:absolute lg:left-8 lg:top-1/4 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg z-10 ${
+                  showDetails ? "lg:max-w-md lg:h-96 lg:overflow-y-auto" : "lg:max-w-sm"
                 }`}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -565,6 +720,7 @@ const ExpertisePage = () => {
                       <div className="sticky top-0 z-50 text-right">
                         <button
                           onClick={() => setShowDetails(false)}
+                          aria-label={t("Fermer", "Close")}
                           className="bg-white/90 backdrop-blur-sm p-1 rounded-full shadow-sm"
                         >
                           <X className="h-6 w-6 text-primary hover:text-red-500 transition-colors" />
@@ -606,7 +762,7 @@ const ExpertisePage = () => {
                   whileInView="animate"
                   variants={contentVariants}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg max-w-xs z-10"
+                  className="relative w-full lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg lg:max-w-xs z-10"
                 >
                   <div className="space-y-2">
                     {expertises[activeExpertise].points
@@ -626,14 +782,14 @@ const ExpertisePage = () => {
                       onClick={() => setShowDetails(true)}
                       className="text-xs text-secondary hover:text-primary transition-colors"
                     >
-                      Voir plus...
+                      {t("Voir plus...", "See more...")}
                     </button>
                   </div>
                 </motion.div>
               )}
 
-              {/* Navigation des expertises - en bas */}
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
+              {/* Navigation des expertises - en haut sur mobile, en bas sur grand écran */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:mt-8 order-first lg:order-none">
                 {expertises.map((expertise, index) => (
                   <motion.button
                     key={index}
@@ -675,15 +831,17 @@ const ExpertisePage = () => {
               className="text-center bg-gradient-hero p-8 md:p-12 rounded-xl text-white"
             >
               <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4">
-                Besoin d'un conseil juridique ?
+                {t("Besoin d'un conseil juridique ?", "In need of legal advice?")}
               </h3>
               <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-                Nos experts sont à votre disposition pour analyser votre
-                situation et vous proposer les meilleures solutions juridiques.
+                {t(
+                  "Nos experts sont à votre disposition pour analyser votre situation et vous proposer les meilleures solutions juridiques.",
+                  "Our experts are at your disposal to analyse your situation and propose the best legal solutions."
+                )}
               </p>
               <Button size="lg" className="btn-secondary-premium" asChild>
                 <a href="/contact">
-                  Prendre rendez-vous
+                  {t("Prendre rendez-vous", "Book an appointment")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>

@@ -144,6 +144,14 @@
     @apply border-border;
   }
 
+  /* Empêche tout élément qui dépasse d'élargir la page sur mobile
+     (sinon l'en-tête fixe s'élargit et le bouton menu sort de l'écran) */
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: "Open Sans", sans-serif;

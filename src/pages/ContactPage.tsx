@@ -7,12 +7,14 @@ import { Label } from '@/components/ui/label';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import aboutHeader from '@/assets/about-header.jpg';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const ContactPage = () => {
+  const { t } = useLanguage();
   const contactInfo = [
     {
       icon: Phone,
-      title: "Téléphone",
+      title: t("Téléphone", "Phone"),
       details: ["+237 233 42 14 29", "+237 654 28 23 54"],
       color: "bg-primary"
     },
@@ -24,14 +26,14 @@ const ContactPage = () => {
     },
     {
       icon: MapPin,
-      title: "Adresse",
-      details: ["Bonapriso, 341 rue École Primaire Dominique Savio", "B.P. 1929 Douala, Cameroun"],
+      title: t("Adresse", "Address"),
+      details: ["Bonapriso, 341 rue École Primaire Dominique Savio", t("B.P. 1929 Douala, Cameroun", "P.O. Box 1929 Douala, Cameroon")],
       color: "bg-primary"
     },
     {
       icon: Clock,
-      title: "Horaires",
-      details: ["Lun - Ven: 8h00 - 18h30"],
+      title: t("Horaires", "Opening Hours"),
+      details: [t("Lun - Ven: 8h00 - 18h30", "Mon - Fri: 8:00 am - 6:30 pm")],
       color: "bg-primary"
     }
   ];
@@ -53,17 +55,17 @@ const ContactPage = () => {
       <section className="relative h-64 overflow-hidden">
         <img
           src="https://www.nia.nih.gov/sites/default/files/niacontact_.jpg"
-          alt="À propos de D. Legal"
+          alt={t("Contact — D. HAPPI Avocats", "Contact — D. HAPPI Attorneys")}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Contactez-nous
+              {t("Contactez-nous", "Contact us")}
             </h1>
             <p className="text-xl md:text-2xl text-gray-200">
-              Nous sommes là pour vous accompagner
+              {t("Nous sommes là pour vous accompagner", "We are here to support you")}
             </p>
           </div>
         </div>
@@ -96,44 +98,47 @@ const ContactPage = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-heading font-bold text-primary mb-6">
-                Envoyez-nous un Message
+                {t("Envoyez-nous un Message", "Send us a Message")}
               </h2>
               <p className="text-muted-foreground mb-8">
-                N'hésitez pas à nous faire part de vos questions ou besoins spécifiques.
-                Notre équipe vous répondra dans les plus brefs délais. </p>
+                {t(
+                  "N'hésitez pas à nous faire part de vos questions ou besoins spécifiques. Notre équipe vous répondra dans les plus brefs délais.",
+                  "Please do not hesitate to share your questions or specific needs with us. Our team will respond as soon as possible."
+                )}
+              </p>
 
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="firstname">Prénom *</Label>
-                    <Input id="firstname" placeholder="Votre prénom" required />
+                    <Label htmlFor="firstname">{t("Prénom *", "First name *")}</Label>
+                    <Input id="firstname" placeholder={t("Votre prénom", "Your first name")} required />
                   </div>
                   <div>
-                    <Label htmlFor="lastname">Nom *</Label>
-                    <Input id="lastname" placeholder="Votre nom" required />
+                    <Label htmlFor="lastname">{t("Nom *", "Last name *")}</Label>
+                    <Input id="lastname" placeholder={t("Votre nom", "Your last name")} required />
                   </div>
                 </div>
 
                 <div>
                   <Label htmlFor="email">Email *</Label>
-                  <Input id="email" type="email" placeholder="votre@email.com" required />
+                  <Input id="email" type="email" placeholder={t("votre@email.com", "your@email.com")} required />
                 </div>
 
                 <div>
-                  <Label htmlFor="phone">Téléphone</Label>
+                  <Label htmlFor="phone">{t("Téléphone", "Phone")}</Label>
                   <Input id="phone" type="tel" placeholder="+237 6XX XXX XXX" />
                 </div>
 
                 <div>
-                  <Label htmlFor="subject">Sujet *</Label>
-                  <Input id="subject" placeholder="Objet de votre demande" required />
+                  <Label htmlFor="subject">{t("Sujet *", "Subject *")}</Label>
+                  <Input id="subject" placeholder={t("Objet de votre demande", "Subject of your enquiry")} required />
                 </div>
 
                 <div>
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
-                    placeholder="Décrivez votre situation ou vos besoins..."
+                    placeholder={t("Décrivez votre situation ou vos besoins...", "Describe your situation or needs...")}
                     rows={6}
                     required
                   />
@@ -141,7 +146,7 @@ const ContactPage = () => {
 
                 <Button size="lg" className="w-full btn-secondary-premium">
                   <Send className="h-5 w-5 mr-2" />
-                  Envoyer le Message
+                  {t("Envoyer le Message", "Send Message")}
                 </Button>
               </form>
             </div>
@@ -161,7 +166,7 @@ const ContactPage = () => {
                   <Card key={index} className="premium-scale">
                     <CardHeader>
                       <CardTitle className="text-secondary">
-                        Bureau de {office.city}
+                        {t(`Bureau de ${office.city}`, `${office.city} Office`)}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
@@ -202,7 +207,7 @@ const ContactPage = () => {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Localisation du Cabinet D.HAPPI - Douala"
+                    title={t("Localisation du Cabinet D.HAPPI - Douala", "D.HAPPI Firm location - Douala")}
                   ></iframe>
                 </div>
               </div>

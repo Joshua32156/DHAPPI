@@ -5,29 +5,31 @@ import vanessa from "@/assets/VANESSA DE HAPPI.avif";
 import lionel from "@/assets/LIONEL NGADJUI.avif";
 import djontu from "@/assets/ARNOLD KAMDEM.avif";
 import arnold from "@/assets/TeamImages/Arnold Kamdem.avif";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Team = () => {
+  const { t } = useLanguage();
   const teamMembers = [
     {
       name: "Dieudonné HAPPI",
-      position: "Associé fondateur",
-      specialty: "Droit des affaires & Contentieux",
+      position: t("Associé fondateur", "Founding Partner"),
+      specialty: t("Droit des affaires & Contentieux", "Business Law & Litigation"),
       image: dieudonneHappi,
-      bio: "Avocat au barreau du Cameroun depuis 35 ans, Me Happi est associé principal de DH Avocats.",
+      bio: t("Avocat au barreau du Cameroun depuis 35 ans, Me Happi est associé principal de DH Avocats.", "A member of the Cameroon Bar for 35 years, Mr Happi is the senior partner of DH Avocats."),
     },
     {
       name: "Vanessa de HAPPI",
       position: "Of Counsel",
-      specialty: "Fiscalité & Conformité",
+      specialty: t("Fiscalité & Conformité", "Tax & Compliance"),
       image: vanessa,
-      bio: "Diplômée en droit français, en droit québécois et en Common Law.",
+      bio: t("Diplômée en droit français, en droit québécois et en Common Law.", "Holds degrees in French law, Quebec law and Common Law."),
     },
     {
       name: "Lionel NGADJUI",
-      position: "Avocat senior",
-      specialty: "Changes & Investissements",
+      position: t("Avocat senior", "Senior Associate"),
+      specialty: t("Changes & Investissements", "Exchange & Investments"),
       image: lionel,
-      bio: "Lionel supervise les activités des départements Conseil et Contentieux.",
+      bio: t("Lionel supervise les activités des départements Conseil et Contentieux.", "Lionel oversees the activities of the Advisory and Litigation departments."),
     },
   ];
 
@@ -36,14 +38,16 @@ const Team = () => {
       <div className="container-premium">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-            Notre Équipe
+            {t("Notre Équipe", "Our Team")}
             <span className="text-secondary block text-3xl md:text-4xl">
-              d'experts
+              {t("d'experts", "of experts")}
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Des professionnels d'exception, reconnus pour leur expertise et leur
-            engagement au service de vos intérêts.
+            {t(
+              "Des professionnels d'exception, reconnus pour leur expertise et leur engagement au service de vos intérêts.",
+              "Exceptional professionals, recognised for their expertise and their commitment to serving your interests."
+            )}
           </p>
         </div>
 
@@ -98,25 +102,25 @@ const Team = () => {
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                 +20
               </div>
-              <div className="text-muted-foreground">Professionnels dédiés</div>
+              <div className="text-muted-foreground">{t("Professionnels dédiés", "Dedicated professionals")}</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                 5
               </div>
-              <div className="text-muted-foreground">Domaines d'expertise</div>
+              <div className="text-muted-foreground">{t("Domaines d'expertise", "Areas of expertise")}</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                 500+
               </div>
-              <div className="text-muted-foreground">Clients accompagnés</div>
+              <div className="text-muted-foreground">{t("Clients accompagnés", "Clients supported")}</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
-                40 ans
+                {t("40 ans", "40 years")}
               </div>
-              <div className="text-muted-foreground">D'expérience</div>
+              <div className="text-muted-foreground">{t("D'expérience", "Of experience")}</div>
             </div>
           </div>
         </div>
@@ -124,22 +128,24 @@ const Team = () => {
         {/* CTA */}
         <div className="text-center">
           <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-            Rejoignez notre équipe d'exception
+            {t("Rejoignez notre équipe d'exception", "Join our exceptional team")}
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Nous recherchons constamment des talents pour renforcer notre
-            équipe. Découvrez nos opportunités de carrière.
+            {t(
+              "Nous recherchons constamment des talents pour renforcer notre équipe. Découvrez nos opportunités de carrière.",
+              "We are always looking for talented people to strengthen our team. Discover our career opportunities."
+            )}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="btn-secondary-premium">
               <a href="/equipe">
-              Découvrir toute l'équipe
+              {t("Découvrir toute l'équipe", "Meet the whole team")}
               </a>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline">
               <a href="/carrieres">
-              Offres d'emploi
+              {t("Offres d'emploi", "Job openings")}
               </a>
               </Button>
           </div>

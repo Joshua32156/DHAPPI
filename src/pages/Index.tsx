@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Us from "@/assets/Us.jpg";
 import {Link} from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -40 },
@@ -20,6 +21,7 @@ const fadeRight = {
 };
 
 const Index = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Header />
@@ -47,34 +49,28 @@ const Index = () => {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                   <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-                    Qui sommes-nous ?
+                    {t("Qui sommes-nous ?", "Who We Are")}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <p className="text-slate-700 leading-relaxed text-lg text-justify">
-                      Depuis 40 ans, le cabinet D.HAPPI Avocats accompagne vos
-                      rêves, défend vos droits et se tient à vos côtés dans les
-                      moments décisifs. Grâce à notre expertise et à notre
-                      engagement, nous avons bâti une relation de confiance
-                      durable avec vous, en nous battant pour vos intérêts avec
-                      passion et dévouement. Nous avons choisi de privilégier
-                      une approche humaine et accessible.
+                      {t(
+                        "Depuis 40 ans, le cabinet D.HAPPI Avocats accompagne vos rêves, défend vos droits et se tient à vos côtés dans les moments décisifs. Grâce à notre expertise et à notre engagement, nous avons bâti une relation de confiance durable avec vous, en nous battant pour vos intérêts avec passion et dévouement. Nous avons choisi de privilégier une approche humaine et accessible.",
+                        "For 40 years, D.HAPPI Avocats has supported your ambitions, defended your rights and stood by your side at decisive moments. Through our expertise and commitment, we have built a lasting relationship of trust with you, fighting for your interests with passion and dedication. We have chosen to favour a personal and accessible approach."
+                      )}
                     </p>
                     <div className="flex flex-col h-full justify-between">
                       <p className="text-slate-700 leading-relaxed text-lg text-justify mb-4">
-                        Ce sont votre confiance et votre fidélité qui nous
-                        permettent de maintenir notre indépendance, d'innover
-                        dans nos solutions juridiques et de rendre nos services
-                        accessibles à un public diversifié. Merci d’avoir fait
-                        partie de notre histoire et de continuer à nous donner
-                        la force de défendre vos droits et vos aspirations. D.
-                        HAPPI Avocats, c’est votre histoire autant que la nôtre.
+                        {t(
+                          "Ce sont votre confiance et votre fidélité qui nous permettent de maintenir notre indépendance, d'innover dans nos solutions juridiques et de rendre nos services accessibles à un public diversifié. Merci d’avoir fait partie de notre histoire et de continuer à nous donner la force de défendre vos droits et vos aspirations. D. HAPPI Avocats, c’est votre histoire autant que la nôtre.",
+                          "It is your trust and loyalty that enable us to maintain our independence, to innovate in our legal solutions and to make our services accessible to a diverse clientele. Thank you for being part of our story and for continuing to give us the strength to defend your rights and aspirations. D. HAPPI Avocats is your story as much as ours."
+                        )}
                       </p>
                       <div>
                         <Link
                           to="/a-propos"
                           className="group inline-flex items-center font-semibold text-secondary hover:underline hover:text-secondary/80 transform hover:scale-105 transition-all duration-300"
                         >
-                          <span>En savoir plus</span>
+                          <span>{t("En savoir plus", "Learn more")}</span>
                           <svg
                             className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 text-secondary"
                             fill="none"
@@ -105,7 +101,7 @@ const Index = () => {
                   <div className="w-full h-[28rem] md:h-auto aspect-[3/4] bg-gray-200 rounded-3xl border border-white/50 shadow-xl shadow-blue-100/20 overflow-hidden flex items-center justify-center">
                     <img
                       src={Us}
-                      alt="Cabinet D.HAPPI"
+                      alt={t("Cabinet D.HAPPI", "D.HAPPI law firm")}
                       className="object-cover w-full h-full rounded-3xl"
                     />
                   </div>

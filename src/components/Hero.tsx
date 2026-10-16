@@ -4,26 +4,28 @@ import heroImage from "@/assets/hero-law-firm.jpg";
 import heroImage2 from "@/assets/hero-law-firm-2.jpg";
 import heroImage3 from "@/assets/hero-law-firm-3.jpg";
 import logoGold from "@/assets/Logo gold.png";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [counter, setCounter] = useState(0);
 
   const slides = [
     {
       image: heroImage,
-      title: "Bâtissons une relation de confiance",
-      subtitle: "Éthique - Efficacité - Professionnalisme",
+      title: t("Bâtissons une relation de confiance", "Let us build a relationship of trust"),
+      subtitle: t("Éthique - Efficacité - Professionnalisme", "Ethics - Efficiency - Professionalism"),
     },
     {
       image: heroImage2,
-      title: "Excellence et confiance",
-      subtitle: "depuis 1985",
+      title: t("Excellence et confiance", "Excellence and trust"),
+      subtitle: t("depuis 1985", "since 1985"),
     },
     {
       image: heroImage3,
-      title: "40 ans à vos côtés,",
-      subtitle: "pour défendre vos droits et concrétiser vos rêves",
+      title: t("40 ans à vos côtés,", "40 years by your side,"),
+      subtitle: t("pour défendre vos droits et concrétiser vos rêves", "defending your rights and bringing your ambitions to life"),
     },
   ];
 
@@ -118,7 +120,7 @@ const Hero = () => {
           <Calendar className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-secondary" />
         </div>
         <div>
-          <div className="text-xs sm:text-sm md:text-base">Année de création</div>
+          <div className="text-xs sm:text-sm md:text-base">{t("Année de création", "Founded")}</div>
           <div className="text-lg sm:text-2xl md:text-3xl font-bold">1985</div>
         </div>
       </div>
@@ -127,7 +129,7 @@ const Hero = () => {
           <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-secondary" />
         </div>
         <div>
-          <div className="text-xs sm:text-sm md:text-base">Indépendant</div>
+          <div className="text-xs sm:text-sm md:text-base">{t("Indépendant", "Independent")}</div>
           <div className="text-lg sm:text-2xl md:text-3xl font-bold">100%</div>
         </div>
       </div>
@@ -136,7 +138,7 @@ const Hero = () => {
     {/* Droite */}
     <div className="text-right">
       <div className="text-xl sm:text-3xl md:text-4xl font-bold">+{counter}</div>
-      <div className="text-xs sm:text-sm md:text-base">Professionnels dédiés</div>
+      <div className="text-xs sm:text-sm md:text-base">{t("Professionnels dédiés", "Dedicated professionals")}</div>
     </div>
   </div>
 )}

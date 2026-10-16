@@ -14,67 +14,69 @@ import powerlist from "@/assets/Powerlist.jpg";
 import awardsHeader from "@/assets/awardsup.jpg";
 import chambers4 from "@/assets/Chambers Global 4.png";
 import chambers3 from "@/assets/Chambers Global Guide VDH.png";
-import EMEA from "@/assets/EMEA_Leading_firm_2026";
+import EMEA from "@/assets/EMEA_Leading_firm_2026.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Awards = () => {
+  const { t } = useLanguage();
   const awards = [
     {
-      year: "édition 2025",
+      year: t("édition 2025", "2025 edition"),
       title: "AFRICA LAW FIRMS POWERLIST",
       image: powerlist,
       link: "https://www.linkedin.com/posts/dhappi_classement-africabusinessplus-classement2025-activity-7356247208905580544-D8f_?utm_source=share&utm_medium=member_ios&rcm=ACoAAD6sONABdg-CwAFR3vOMGgQD67R-b_pVMhQ",
     },
     {
-      year: "édition 2025",
+      year: t("édition 2025", "2025 edition"),
       title: "AFRICA 100 LEGAL POWERLIST",
       image: legalpowerlist,
       link: "https://www.linkedin.com/posts/dhappi_ranking-africanlawfirmspowerlist-jeuneafrique-activity-7353351574699528192-UFQH?utm_source=share&utm_medium=member_ios&rcm=ACoAAD6sONABdg-CwAFR3vOMGgQD67R-b_pVMhQ",
     },
     {
-      year: "édition 2025",
+      year: t("édition 2025", "2025 edition"),
       title: "Up and Coming lawyer of the Year",
       image: chambers2,
       link: "https://www.linkedin.com/posts/dhappi_chambersglobal2025-legalrankings-businesslaw-activity-7304788117595574274-oKlc?utm_source=share&utm_medium=member_ios&rcm=ACoAAD6sONABdg-CwAFR3vOMGgQD67R-b_pVMhQ",
     },
     {
-      year: "édition 2025",
+      year: t("édition 2025", "2025 edition"),
       title: "Chambers Global Ranked In",
       image: chambers1,
       link: "https://www.linkedin.com/posts/dhappi_dhappi-avocats-chambers-2025-ranking-activity-7303351500070633472-OfZG?utm_source=share&utm_medium=member_ios&rcm=ACoAAD6sONABdg-CwAFR3vOMGgQD67R-b_pVMhQ",
     },
     {
-      year: "édition 2024",
+      year: t("édition 2024", "2024 edition"),
       title: "Africa Legal 100 Powerlist",
       image: legaledition,
     },
     {
-      year: "édition 2024",
+      year: t("édition 2024", "2024 edition"),
       title: "IFLR 1000 Notable Firm",
       image: iflr,
     },
     {
-      year: "édition 2023",
+      year: t("édition 2023", "2023 edition"),
       title: "Africa Law Firms Powerlist",
       image: africalawfirms,
     },
     {
-      year: "édition 2025",
+      year: t("édition 2025", "2025 edition"),
       title: "Leading partner",
       image: chambers4,
     },
     {
-      year: "édition 2026",
+      year: t("édition 2026", "2026 edition"),
       title: "leading Firm",
       image: chambers3,
     },
   ];
 
   const certifications = [
-    "Certification ISO 9001:2015 - Qualité des Services",
-    "Accréditation Barreau du Cameroun",
-    "Membre de l'Union Internationale des Avocats (UIA)",
-    "Certification OHADA - Droit des Affaires",
-    "Membre de l'Association Africaine de Droit International",
+    t("Certification ISO 9001:2015 - Qualité des Services", "ISO 9001:2015 Certification - Service Quality"),
+    t("Accréditation Barreau du Cameroun", "Accreditation by the Cameroon Bar"),
+    t("Membre de l'Union Internationale des Avocats (UIA)", "Member of the International Association of Lawyers (UIA)"),
+    t("Certification OHADA - Droit des Affaires", "OHADA Certification - Business Law"),
+    t("Membre de l'Association Africaine de Droit International", "Member of the African Association of International Law"),
   ];
 
   return (
@@ -85,17 +87,17 @@ const Awards = () => {
         <section className="relative h-64 overflow-hidden">
           <img
             src={awardsHeader}
-            alt="Awards et Reconnaissances"
+            alt={t("Awards et Reconnaissances", "Awards and Recognition")}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/60"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                Awards & Reconnaissances
+                {t("Awards & Reconnaissances", "Awards & Recognition")}
               </h1>
               <p className="text-xl md:text-2xl text-gray-200">
-                Excellence reconnue dans le domaine juridique
+                {t("Excellence reconnue dans le domaine juridique", "Recognised excellence in the legal field")}
               </p>
             </div>
           </div>
@@ -106,12 +108,13 @@ const Awards = () => {
           <div className="container-premium">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                Nos Distinctions
+                {t("Nos Distinctions", "Our Distinctions")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Notre engagement envers l'excellence juridique a été reconnu par
-                de nombreuses institutions prestigieuses au niveau
-                international.
+                {t(
+                  "Notre engagement envers l'excellence juridique a été reconnu par de nombreuses institutions prestigieuses au niveau international.",
+                  "Our commitment to legal excellence has been recognised by numerous prestigious institutions internationally."
+                )}
               </p>
             </div>
 
@@ -154,7 +157,7 @@ const Awards = () => {
                           rel="noopener noreferrer"
                           className="underline font-medium text-accent"
                         >
-                          En savoir plus
+                          {t("En savoir plus", "Learn more")}
                         </a>
                       </div>
                     </div>

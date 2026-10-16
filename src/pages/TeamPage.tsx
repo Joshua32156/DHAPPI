@@ -15,9 +15,12 @@ interface TeamMember {
   link: string;
 }
 
-import { teamData } from "@/data/teamData";
+import { getTeamData } from "@/data/team";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const TeamPage = () => {
+  const { lang, t } = useLanguage();
+  const teamData = getTeamData(lang);
   // Convert object to array for mapping
   const team = Object.entries(teamData).map(([slug, data]) => ({
     name: data.name,
@@ -29,16 +32,6 @@ const TeamPage = () => {
   }));
 
   // VARIANTES D'ANIMATION
-  const cardContainerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Démarrage en cascade des enfants
-      },
-    },
-  };
-
   const cardItemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -77,17 +70,17 @@ const TeamPage = () => {
         <section className="relative h-64 overflow-hidden">
           <img
             src="https://images.pexels.com/photos/17257616/pexels-photo-17257616.jpeg"
-            alt="À propos de D. Legal"
+            alt={t("Équipe — D. HAPPI Avocats", "Team — D. HAPPI Attorneys")}
             className="w-full h-full object-cover object-[50%_70%]"
           />
           <div className="absolute inset-0 bg-primary/60"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                Notre Équipe
+                {t("Notre Équipe", "Our Team")}
               </h1>
               <p className="text-xl md:text-2xl text-gray-200">
-                Des experts juridiques dévoués à votre service
+                {t("Des experts juridiques dévoués à votre service", "Legal experts dedicated to serving you")}
               </p>
             </div>
           </div>
@@ -98,30 +91,28 @@ const TeamPage = () => {
           <div className="container-premium">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                Une Équipe d'Excellence
+                {t("Une Équipe d'Excellence", "A Team of Excellence")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Notre équipe multidisciplinaire réunit des avocats expérimentés
-                et spécialisés, unis par la passion du droit et l'engagement
-                envers l'excellence. Chaque membre apporte son expertise unique
-                pour vous offrir des solutions juridiques complètes et
-                innovantes.
+                {t(
+                  "Notre équipe multidisciplinaire réunit des avocats expérimentés et spécialisés, unis par la passion du droit et l'engagement envers l'excellence. Chaque membre apporte son expertise unique pour vous offrir des solutions juridiques complètes et innovantes.",
+                  "Our multidisciplinary team brings together experienced, specialist lawyers united by a passion for the law and a commitment to excellence. Each member contributes their unique expertise to provide you with comprehensive and innovative legal solutions."
+                )}
               </p>
             </div>
 
             {/* Team Grid */}
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-              variants={cardContainerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
+            {/* Chaque carte s'anime individuellement : sur mobile la grille fait
+                plus de 10 000px de haut, une animation globale ne se déclenchait jamais */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {team.map((member: TeamMember, index: number) => (
                 <motion.div
                   key={index}
                   className="max-w-sm mx-auto overflow-hidden rounded-lg" // Classes déplacées ici
                   variants={cardItemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }} // Rétablissement de l'effet au survol
                   whileTap={{ scale: 0.95 }}
                 >
@@ -162,7 +153,7 @@ const TeamPage = () => {
                             asChild
                           >
                             <a
-                              href={`mailto:contact@dlega.com?subject=Contact pour ${member.name}`}
+                              href={`mailto:contact@dlega.com?subject=${t("Contact pour", "Contact for")} ${member.name}`}
                             >
                               <Mail className="h-4 w-4 mr-2" />
                               Contact
@@ -183,7 +174,7 @@ const TeamPage = () => {
                   </Link>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -198,16 +189,17 @@ const TeamPage = () => {
               viewport={{ once: true, amount: 0.5 }}
             >
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-                Rejoignez Notre Équipe
+                {t("Rejoignez Notre Équipe", "Join Our Team")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-                Nous recrutons des talents passionnés par le droit et désireux
-                de contribuer à l'excellence de notre D.. Découvrez nos
-                opportunités de carrière.
+                {t(
+                  "Nous recrutons des talents passionnés par le droit et désireux de contribuer à l'excellence de notre cabinet. Découvrez nos opportunités de carrière.",
+                  "We recruit talented individuals who are passionate about the law and eager to contribute to the excellence of our firm. Discover our career opportunities."
+                )}
               </p>
               <motion.div variants={ctaButtonVariants}>
                 <Button size="lg" className="btn-secondary-premium" asChild>
-                  <a href="/carrieres">Voir les Offres d'Emploi</a>
+                  <a href="/carrieres">{t("Voir les Offres d'Emploi", "View Job Openings")}</a>
                 </Button>
               </motion.div>
             </motion.div>

@@ -1,37 +1,39 @@
 import { Phone, Mail, MapPin, Linkedin, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     navigation: [
-      { name: "Accueil", href: "/" },
-      { name: "À propos", href: "/a-propos" },
-      { name: "Expertises", href: "/expertise" },
-      { name: "Équipe", href: "/equipe" },
+      { name: t("Accueil", "Home"), href: "/" },
+      { name: t("À propos", "About"), href: "/a-propos" },
+      { name: t("Expertises", "Expertise"), href: "/expertise" },
+      { name: t("Équipe", "Team"), href: "/equipe" },
       { name: "Blog", href: "/blog" },
       { name: "Awards", href: "/awards" },
       { name: "Contact", href: "/contact" },
-      { name: "Carrières", href: "/carrieres" },
+      { name: t("Carrières", "Careers"), href: "/carrieres" },
     ],
     expertise: [
-      { name: "Conseil juridique", href: "/expertise#conseil-juridique" },
-      { name: "Contentieux", href: "/expertise#contentieux" },
+      { name: t("Conseil juridique", "Legal Advisory"), href: "/expertise#conseil-juridique" },
+      { name: t("Contentieux", "Litigation"), href: "/expertise#contentieux" },
       {
-        name: "Conformité légale et réglementaire",
+        name: t("Conformité légale et réglementaire", "Legal & Regulatory Compliance"),
         href: "/expertise#conformite-legale-reglementaire",
       },
       {
-        name: "Douanes, Changes & Investissements",
+        name: t("Douanes, Changes & Investissements", "Customs, Exchange & Investments"),
         href: "/expertise#changes-investissements",
       },
-      { name: "Fiscalité", href: "/expertise#fiscalite" },
+      { name: t("Fiscalité", "Tax"), href: "/expertise#fiscalite" },
     ],
     legal: [
-      { name: "Mentions légales", href: "#mentions" },
-      { name: "Politique de confidentialité", href: "#confidentialite" },
-      { name: "Conditions générales", href: "#conditions" },
+      { name: t("Mentions légales", "Legal Notice"), href: "#mentions" },
+      { name: t("Politique de confidentialité", "Privacy Policy"), href: "#confidentialite" },
+      { name: t("Conditions générales", "Terms and Conditions"), href: "#conditions" },
     ],
   };
 
@@ -50,11 +52,11 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 src="/Logo gold.png"
-                alt="D.Happi Logo"
+                alt={t("Logo D.Happi", "D.Happi Logo")}
                 className="h-15 w-auto mb-4"
               />
               <p className="text-primary-foreground/80 leading-relaxed">
-                Bâtissons une relation de confiance.
+                {t("Bâtissons une relation de confiance.", "Let us build a relationship of trust.")}
               </p>
             </div>
 
@@ -73,7 +75,7 @@ const Footer = () => {
                 <span className="text-sm">
                   341 rue École Primaire Dominique Savio, Bonapriso
                   <br />
-                  B.P. 1929 Douala, Cameroun
+                  {t("B.P. 1929 Douala, Cameroun", "P.O. Box 1929 Douala, Cameroon")}
                 </span>
               </div>
             </div>
@@ -98,7 +100,7 @@ const Footer = () => {
           {/* Expertise Links */}
           <div>
             <h3 className="font-heading font-bold text-lg mb-6">
-              Nos Expertises
+              {t("Nos Expertises", "Our Expertise")}
             </h3>
             <div className="space-y-3">
               {footerLinks.expertise.map((link, index) => (
@@ -117,25 +119,25 @@ const Footer = () => {
           <div>
             <h3 className="font-heading font-bold text-lg mb-6">Newsletter</h3>
             <p className="text-primary-foreground/80 text-sm mb-4">
-              Recevez nos actualités juridiques et analyses d'experts.
+              {t("Recevez nos actualités juridiques et analyses d'experts.", "Receive our legal news and expert analysis.")}
             </p>
 
             <div className="mb-6">
-              <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-2">
                 <input
                   type="email"
-                  placeholder="Votre email"
-                  className="flex-1 px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded text-sm text-primary-foreground placeholder-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-secondary"
+                  placeholder={t("Votre email", "Your email")}
+                  className="flex-1 min-w-0 px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded text-sm text-primary-foreground placeholder-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-secondary"
                 />
-                <button className="px-4 py-2 bg-secondary text-secondary-foreground rounded text-sm font-medium hover:bg-secondary-dark transition-colors">
-                  S'abonner
+                <button className="flex-shrink-0 px-4 py-2 bg-secondary text-secondary-foreground rounded text-sm font-medium hover:bg-secondary-dark transition-colors">
+                  {t("S'abonner", "Subscribe")}
                 </button>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="mt-6">
-              <div className="text-sm font-medium mb-3">Suivez-nous</div>
+              <div className="text-sm font-medium mb-3">{t("Suivez-nous", "Follow us")}</div>
               <div className="flex space-x-3">
                 {socialLinks.map((social, index) => (
                   <a
@@ -158,13 +160,13 @@ const Footer = () => {
         <div className="container-premium py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-primary-foreground/80">
-              {currentYear} D. Legal. Tous droits réservés.
+              {currentYear} D. HAPPI Avocats. {t("Tous droits réservés.", "All rights reserved.")}
             </div>
 
             <div className="flex items-center gap-6 text-xs text-primary-foreground/60">
-              <span>Ordre des Avocats du Cameroun</span>
+              <span>{t("Ordre des Avocats du Cameroun", "Cameroon Bar Association")}</span>
               <span>•</span>
-              <span>Membre OHADA</span>
+              <span>{t("Membre OHADA", "OHADA Member")}</span>
             </div>
           </div>
         </div>

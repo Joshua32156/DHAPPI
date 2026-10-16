@@ -3,49 +3,57 @@ import { Button } from "@/components/ui/button";
 import covid from "@/assets/covid.avif";
 import focus from "@/assets/focus special.jpeg";
 import congrat from "@/assets/congrat.avif";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Blog = () => {
+  const { t } = useLanguage();
   const articles = [
     {
       title:
-        "COVID-19 et finalisation des contrats d’affaires: signature électronique alternative pour le signing",
+        t("COVID-19 et finalisation des contrats d’affaires: signature électronique alternative pour le signing", "COVID-19 and the finalisation of business contracts: electronic signature as an alternative for signing"),
       excerpt:
-        "La pandémie de la Covid-19 qui secoue actuellement la planète a contraint les États à prendre des mesures restrictives dans le but de juguler sa propagation. ",
+        t("La pandémie de la Covid-19 qui secoue actuellement la planète a contraint les États à prendre des mesures restrictives dans le but de juguler sa propagation. ", "The Covid-19 pandemic currently shaking the world has forced States to adopt restrictive measures in order to curb its spread. "),
       author: "Boris Minlo",
-      date: "9 avril 2021",
-      category: "Droit des affaires",
+      date: t("9 avril 2021", "9 April 2021"),
+      category: t("Droit des affaires", "Business Law"),
       image: covid,
       readTime: "5 min",
     },
     {
       title:
-        "Me Vanessa de Happi, Symbole de la Génération Montante, selon Cameroon CEO Magazine",
+        t("Me Vanessa de Happi, Symbole de la Génération Montante, selon Cameroon CEO Magazine", "Ms Vanessa de Happi, Symbol of the Rising Generation, according to Cameroon CEO Magazine"),
       excerpt:
-        "Aux côtés d'autres grandes figures féminines du Barreau Camerounais, Me Vanessa De Happi, Of Counsel au Cabinet DH AVOCATS, fait l'objet d'un article dans l'édition du mois de mars 2021 du journal #CAMEROONCEO, un magazine d'information sur les personnes qui marquent l'actualité des affaires au Cameroun.",
+        t(
+          "Aux côtés d'autres grandes figures féminines du Barreau Camerounais, Me Vanessa De Happi, Of Counsel au Cabinet DH AVOCATS, fait l'objet d'un article dans l'édition du mois de mars 2021 du journal #CAMEROONCEO, un magazine d'information sur les personnes qui marquent l'actualité des affaires au Cameroun.",
+          "Alongside other leading women of the Cameroonian Bar, Ms Vanessa De Happi, Of Counsel at DH AVOCATS, is featured in the March 2021 edition of #CAMEROONCEO, a news magazine profiling the people shaping business news in Cameroon."
+        ),
       author: "Boris Minlo",
-      date: "6 avril 2021",
-      category: "Conformité",
+      date: t("6 avril 2021", "6 April 2021"),
+      category: t("Conformité", "Compliance"),
       image: focus,
       readTime: "7 min",
     },
     {
       title:
-        "Me HAPPI, Président de la Commission Électorale de l'assemblée générale élective 2021 de la CAF",
+        t("Me HAPPI, Président de la Commission Électorale de l'assemblée générale élective 2021 de la CAF", "Mr HAPPI, Chairman of the Electoral Commission for the 2021 CAF Elective General Assembly"),
       excerpt:
-        "Notre Associé Fondateur, Me Dieudonné HAPPI, Vice-Président de la Commission de Gouvernance de la Confédération Africaine de Football (CAF), a récemment été nommé Président de la Commission Électorale de l’assemblée générale élective 2021 de cette institution. À ce titre, il était en charge de l'organisation des élections et de la supervision du processus électoral lors de l'assemblée générale qui s’est tenue le 12 mars dernier à Rabat au Maroc. ",
+        t(
+          "Notre Associé Fondateur, Me Dieudonné HAPPI, Vice-Président de la Commission de Gouvernance de la Confédération Africaine de Football (CAF), a récemment été nommé Président de la Commission Électorale de l’assemblée générale élective 2021 de cette institution. À ce titre, il était en charge de l'organisation des élections et de la supervision du processus électoral lors de l'assemblée générale qui s’est tenue le 12 mars dernier à Rabat au Maroc. ",
+          "Our Founding Partner, Mr Dieudonné HAPPI, Vice-Chairman of the Governance Committee of the Confederation of African Football (CAF), was recently appointed Chairman of the Electoral Commission for the institution's 2021 Elective General Assembly. In this capacity, he was responsible for organising the elections and supervising the electoral process at the General Assembly held on 12 March in Rabat, Morocco. "
+        ),
       author: "Boris Minlo",
-      date: "01 Mars 2024",
-      category: "Fiscalité",
+      date: t("01 Mars 2024", "1 March 2024"),
+      category: t("Fiscalité", "Tax"),
       image: congrat,
       readTime: "6 min",
     },
   ];
 
   const categories = [
-    "Droit des affaires",
-    "Fiscalité",
-    "Conformité",
-    "Contentieux",
+    t("Droit des affaires", "Business Law"),
+    t("Fiscalité", "Tax"),
+    t("Conformité", "Compliance"),
+    t("Contentieux", "Litigation"),
     "International",
   ];
 
@@ -54,14 +62,16 @@ const Blog = () => {
       <div className="container-premium">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-            Actualités Juridiques
+            {t("Actualités Juridiques", "Legal News")}
             <span className="text-secondary block text-3xl md:text-4xl">
               & Publications
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Restez informé des dernières évolutions juridiques et découvrez nos
-            analyses d'experts sur les sujets qui impactent votre activité.
+            {t(
+              "Restez informé des dernières évolutions juridiques et découvrez nos analyses d'experts sur les sujets qui impactent votre activité.",
+              "Stay informed of the latest legal developments and discover our expert analysis on the issues that affect your business."
+            )}
           </p>
         </div>
 
@@ -128,7 +138,7 @@ const Blog = () => {
                     variant="ghost"
                     className="w-full justify-between group-hover:bg-secondary/10 transition-colors duration-300"
                   >
-                    Lire l'article
+                    {t("Lire l'article", "Read the article")}
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </div>
@@ -141,7 +151,7 @@ const Blog = () => {
         <div className="text-center mb-16">
           <Button className="btn-secondary-premium" size="lg" asChild>
             <a href="/blog">
-              Voir toutes nos publications
+              {t("Voir toutes nos publications", "View all our publications")}
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
@@ -150,22 +160,24 @@ const Blog = () => {
         {/* Newsletter Subscription */}
         <div className="bg-gradient-hero p-8 md:p-12 rounded-xl shadow-elevation text-center text-white mb-16">
           <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4">
-            Ne manquez aucune actualité juridique
+            {t("Ne manquez aucune actualité juridique", "Never miss a legal update")}
           </h3>
           <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-            Restez informé des dernières actualités juridiques en recevant nos
-            analyses, conseils et revues brèves directement par e-mail.
+            {t(
+              "Restez informé des dernières actualités juridiques en recevant nos analyses, conseils et revues brèves directement par e-mail.",
+              "Stay up to date with the latest legal news by receiving our analysis, advice and briefings directly by email."
+            )}
           </p>
 
           <div className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
-                placeholder="Votre adresse email"
+                placeholder={t("Votre adresse email", "Your email address")}
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
               />
               <Button className="btn-secondary-premium whitespace-nowrap">
-                S'abonner
+                {t("S'abonner", "Subscribe")}
               </Button>
             </div>
           </div>
@@ -183,7 +195,7 @@ const Blog = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation du Cabinet D.HAPPI - Douala"
+                title={t("Localisation du Cabinet D.HAPPI - Douala", "D.HAPPI law firm location - Douala")}
               />
             </div>
           </div>

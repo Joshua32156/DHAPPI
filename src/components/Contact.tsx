@@ -1,31 +1,33 @@
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const offices = [
     {
-      name: "Siège Social - Douala",
+      name: t("Siège Social - Douala", "Head Office - Douala"),
       address: "341 rue École Primaire Dominique Savio, Bonapriso",
-      city: "Douala, Cameroun",
+      city: t("Douala, Cameroun", "Douala, Cameroon"),
       phone: "+237 233 42 14 29",
       email: "douala@D.-legal.com",
-      hours: "Lun-Ven: 8h-18h30"
+      hours: t("Lun-Ven: 8h-18h30", "Mon-Fri: 8am-6:30pm")
     },
     {
-      name: "Bureau de Maroua", 
+      name: t("Bureau de Maroua", "Maroua Office"), 
       address: "Quartier Domayo, Avenue des Martyrs",
-      city: "Maroua, Cameroun",
+      city: t("Maroua, Cameroun", "Maroua, Cameroon"),
       phone: "+237 691 234 568",
       email: "maroua@D.-legal.com",
-      hours: "Lun-Ven: 8h-17h"
+      hours: t("Lun-Ven: 8h-17h", "Mon-Fri: 8am-5pm")
     },
     {
-      name: "Bureau International",
-      address: "À venir - Expansion régionale",
-      city: "Afrique Centrale",
+      name: t("Bureau International", "International Office"),
+      address: t("À venir - Expansion régionale", "Coming soon - Regional expansion"),
+      city: t("Afrique Centrale", "Central Africa"),
       phone: "+237 691 234 569",
       email: "international@D.-legal.com",
-      hours: "Sur rendez-vous"
+      hours: t("Sur rendez-vous", "By appointment")
     }
   ];
 
@@ -34,12 +36,14 @@ const Contact = () => {
       <div className="container-premium">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-            Contactez-nous
-            <span className="text-secondary block text-3xl md:text-4xl">pour une consultation</span>
+            {t("Contactez-nous", "Contact us")}
+            <span className="text-secondary block text-3xl md:text-4xl">{t("pour une consultation", "for a consultation")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Notre équipe est à votre disposition pour analyser votre situation juridique 
-            et vous proposer des solutions adaptées.
+            {t(
+              "Notre équipe est à votre disposition pour analyser votre situation juridique et vous proposer des solutions adaptées.",
+              "Our team is at your disposal to analyse your legal situation and propose tailored solutions."
+            )}
           </p>
         </div>
 
@@ -47,29 +51,29 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-gradient-card p-8 rounded-xl shadow-elevation">
             <h3 className="text-2xl font-heading font-bold text-primary mb-6">
-              Demande de consultation
+              {t("Demande de consultation", "Consultation request")}
             </h3>
             
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Prénom *
+                    {t("Prénom *", "First name *")}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
-                    placeholder="Votre prénom"
+                    placeholder={t("Votre prénom", "Your first name")}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Nom *
+                    {t("Nom *", "Last name *")}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
-                    placeholder="Votre nom"
+                    placeholder={t("Votre nom", "Your last name")}
                   />
                 </div>
               </div>
@@ -81,13 +85,13 @@ const Contact = () => {
                 <input
                   type="email"
                   className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors"
-                  placeholder="votre@email.com"
+                  placeholder={t("votre@email.com", "your@email.com")}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Téléphone
+                  {t("Téléphone", "Telephone")}
                 </label>
                 <input
                   type="tel"
@@ -98,16 +102,16 @@ const Contact = () => {
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Domaine juridique *
+                  {t("Domaine juridique *", "Area of law *")}
                 </label>
                 <select className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors">
-                  <option value="">Sélectionnez un domaine</option>
-                  <option value="conseil">Conseil juridique</option>
-                  <option value="contentieux">Contentieux</option>
-                  <option value="conformite">Conformité légale</option>
-                  <option value="changes">Changes & investissements</option>
-                  <option value="fiscalite">Fiscalité</option>
-                  <option value="autre">Autre</option>
+                  <option value="">{t("Sélectionnez un domaine", "Select an area")}</option>
+                  <option value="conseil">{t("Conseil juridique", "Legal Advisory")}</option>
+                  <option value="contentieux">{t("Contentieux", "Litigation")}</option>
+                  <option value="conformite">{t("Conformité légale", "Legal Compliance")}</option>
+                  <option value="changes">{t("Changes & investissements", "Exchange & Investments")}</option>
+                  <option value="fiscalite">{t("Fiscalité", "Tax")}</option>
+                  <option value="autre">{t("Autre", "Other")}</option>
                 </select>
               </div>
 
@@ -118,7 +122,7 @@ const Contact = () => {
                 <textarea
                   rows={5}
                   className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors resize-none"
-                  placeholder="Décrivez brièvement votre situation juridique..."
+                  placeholder={t("Décrivez brièvement votre situation juridique...", "Briefly describe your legal situation...")}
                 ></textarea>
               </div>
 
@@ -129,14 +133,14 @@ const Contact = () => {
                   className="mt-1 w-4 h-4 text-secondary border-border rounded focus:ring-secondary"
                 />
                 <label htmlFor="consent" className="text-sm text-muted-foreground">
-                  J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. 
-                  Voir notre <a href="#" className="text-secondary hover:underline">politique de confidentialité</a>.
+                  {t("J'accepte que mes données soient utilisées pour me recontacter concernant ma demande.", "I agree that my data may be used to contact me regarding my request.")}{" "}
+                  {t("Voir notre", "See our")} <a href="#" className="text-secondary hover:underline">{t("politique de confidentialité", "privacy policy")}</a>.
                 </label>
               </div>
 
               <Button className="btn-secondary-premium w-full" size="lg">
                 <Send className="mr-2 h-5 w-5" />
-                Envoyer ma demande
+                {t("Envoyer ma demande", "Send my request")}
               </Button>
             </form>
           </div>
@@ -145,7 +149,7 @@ const Contact = () => {
           {/* <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-heading font-bold text-primary mb-6">
-                Nos bureaux
+                {t("Nos bureaux", "Our offices")}
               </h3>
               
               <div className="space-y-6">
@@ -193,14 +197,14 @@ const Contact = () => {
         {/* Map Section */}
         {/* <div className="mt-16">
           <h3 className="text-2xl font-heading font-bold text-primary mb-6 text-center">
-            Nos localisations
+            {t("Nos localisations", "Our locations")}
           </h3>
           <div className="bg-card rounded-xl shadow-elevation overflow-hidden">
             <div className="h-96 bg-muted flex items-center justify-center">
               <div className="text-center text-muted-foreground">
                 <MapPin className="h-12 w-12 mx-auto mb-4" />
-                <p>Carte interactive à intégrer</p>
-                <p className="text-sm">Google Maps ou service de cartographie</p>
+                <p>{t("Carte interactive à intégrer", "Interactive map to be added")}</p>
+                <p className="text-sm">{t("Google Maps ou service de cartographie", "Google Maps or mapping service")}</p>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Phone, Mail, MapPin, Globe, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 
 const Header = () => {
@@ -12,16 +13,22 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+  const { lang, setLang, t } = useLanguage();
+
+  // Ferme le menu mobile à chaque changement de page
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [currentPath]);
 
   const expertiseItems = [
-    { id: "conseil-juridique", title: "Conseil juridique" },
-    { id: "contentieux", title: "Contentieux" },
+    { id: "conseil-juridique", title: t("Conseil juridique", "Legal Advisory") },
+    { id: "contentieux", title: t("Contentieux", "Litigation") },
     {
       id: "conformite-legale-reglementaire",
-      title: "Conformité légale & réglementaire",
+      title: t("Conformité légale & réglementaire", "Legal & Regulatory Compliance"),
     },
-    { id: "changes-investissements", title: "Douanes, Changes & Investissements" },
-    { id: "fiscalite", title: "Fiscalité" },
+    { id: "changes-investissements", title: t("Douanes, Changes & Investissements", "Customs, Exchange & Investments") },
+    { id: "fiscalite", title: t("Fiscalité", "Tax") },
   ];
 
   // Fonction pour ouvrir le menu expertise
@@ -73,13 +80,18 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-6">
             <div className="hidden sm:flex items-center gap-1 sm:gap-2">
               <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span>Douala, Cameroun</span>
+              <span>{t("Douala, Cameroun", "Douala, Cameroon")}</span>
             </div>
             <div className="flex items-center gap-1 sm:gap-2">
               <Globe className="h-3 w-3 sm:h-4 sm:w-4" />
-              <select className="bg-transparent border-none text-primary-foreground">
-                <option value="fr">FR</option>
-                <option value="en">EN</option>
+              <select
+                value={lang}
+                onChange={(e) => setLang(e.target.value as "fr" | "en")}
+                aria-label={t("Langue", "Language")}
+                className="bg-transparent border-none text-primary-foreground cursor-pointer"
+              >
+                <option value="fr" className="text-foreground">FR</option>
+                <option value="en" className="text-foreground">EN</option>
               </select>
             </div>
           </div>
@@ -90,13 +102,13 @@ const Header = () => {
       <nav className="container-premium py-4 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <img
               src="/Logo blue.png"
-              alt="D.Happi Logo"
+              alt="D. HAPPI Avocats"
               className="h-12 sm:h-16 md:h-20 w-auto"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -107,7 +119,7 @@ const Header = () => {
                 ${currentPath === "/" ? "text-secondary" : "text-foreground hover:text-secondary"}
               `}
             >
-              Accueil
+              {t("Accueil", "Home")}
             </Link>
             <Link
               to="/a-propos"
@@ -116,7 +128,7 @@ const Header = () => {
                 ${currentPath === "/a-propos" ? "text-secondary" : "text-foreground hover:text-secondary"}
               `}
             >
-              À propos
+              {t("À propos", "About")}
             </Link>
 
             {/* Expertise Dropdown */}
@@ -169,7 +181,7 @@ const Header = () => {
                 ${currentPath === "/equipe" ? "text-secondary" : "text-foreground hover:text-secondary"}
               `}
             >
-              Équipe
+              {t("Équipe", "Team")}
             </Link>
             <Link
               to="/blog"
@@ -178,7 +190,7 @@ const Header = () => {
                 ${currentPath === "/blog" ? "text-secondary" : "text-foreground hover:text-secondary"}
               `}
             >
-              Publications
+              {t("Publications", "Publications")}
             </Link>
             <Link
               to="/awards"
@@ -196,7 +208,7 @@ const Header = () => {
                 ${currentPath === "/carrieres" ? "text-secondary" : "text-foreground hover:text-secondary"}
               `}
             >
-              Carrières
+              {t("Carrières", "Careers")}
             </Link>
             <Link
               to="/contact"
@@ -213,6 +225,8 @@ const Header = () => {
           <button
             className="lg:hidden p-2 flex-shrink-0"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? t("Fermer le menu", "Close menu") : t("Ouvrir le menu", "Open menu")}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -224,19 +238,19 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-border max-h-screen overflow-y-auto">
+          <div className="lg:hidden mt-4 py-4 border-t border-border max-h-[calc(100vh-8rem)] overflow-y-auto">
             <div className="space-y-4">
               <Link
                 to="/"
                 className="block py-2 text-foreground hover:text-secondary transition-colors font-medium"
               >
-                Accueil
+                {t("Accueil", "Home")}
               </Link>
               <Link
                 to="/a-propos"
                 className="block py-2 text-foreground hover:text-secondary transition-colors font-medium"
               >
-                À propos
+                {t("À propos", "About")}
               </Link>
               <div className="space-y-2">
                 {/* Conteneur pour le lien et le bouton de déroulement */}
@@ -246,12 +260,13 @@ const Header = () => {
                     className="py-2 text-foreground font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Notre Expertise
+                    {t("Notre Expertise", "Our Expertise")}
                   </Link>
                   {/* Le bouton pour dérouler le menu */}
                   <button
                     onClick={() => setIsExpertiseOpen(!isExpertiseOpen)}
                     className="p-2 transition-transform duration-200"
+                    aria-label={t("Afficher les expertises", "Show practice areas")}
                   >
                     <ChevronDown
                       className={`h-4 w-4 ${
@@ -281,13 +296,13 @@ const Header = () => {
                 to="/equipe"
                 className="block py-2 text-foreground hover:text-secondary transition-colors font-medium"
               >
-                Équipe
+                {t("Équipe", "Team")}
               </Link>
               <Link
                 to="/blog"
                 className="block py-2 text-foreground hover:text-secondary transition-colors font-medium"
               >
-                Blog
+                {t("Publications", "Publications")}
               </Link>
               <Link
                 to="/awards"
@@ -299,7 +314,7 @@ const Header = () => {
                 to="/carrieres"
                 className="block py-2 text-foreground hover:text-secondary transition-colors font-medium"
               >
-                Carrières
+                {t("Carrières", "Careers")}
               </Link>
               <Link
                 to="/contact"

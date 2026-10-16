@@ -1,10 +1,13 @@
 import { useParams, Navigate } from 'react-router-dom';
 import ProfilePage from '@/components/ProfilePage';
-import { teamData } from '@/data/teamData';
+import { getTeamData } from '@/data/team';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const TeamMemberProfile = () => {
   const { id } = useParams<{ id: string }>();
-  
+  const { lang } = useLanguage();
+  const teamData = getTeamData(lang);
+
   if (!id || !teamData[id]) {
     return <Navigate to="/404" replace />;
   }

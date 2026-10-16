@@ -12,6 +12,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import fontteam from "@/assets/FondTeam.png";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ExpertData {
   name: string;
@@ -49,6 +50,7 @@ const OVERFLOW_MD = PHOTO_H_MD / 2;
 const OVERFLOW_SM = PHOTO_H_SM / 2;
 
 const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
+  const { t } = useLanguage();
   const {
     name,
     role,
@@ -77,14 +79,14 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
           <div className="relative w-full bg-primary overflow-visible pt-16 pb-4 md:pb-4">
             <img
               src={fontteam}
-              alt={`${name} background`}
+              alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-primary/95" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-10">
-              <div className="flex flex-col md:flex-row items-start justify-between gap-6">
-                <div className="md:w-2/3 flex flex-col items-start text-left text-white pb-0 md:pr-[320px]">
+              <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
+                <div className="w-full flex flex-col items-start text-left text-white pb-0 lg:pr-[360px]">
                   <h1 className="text-4xl md:text-5xl font-heading font-bold tracking-tight">
                     {name}
                   </h1>
@@ -108,7 +110,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                       >
                         <a
                           href={`mailto:${email}`}
-                          aria-label={`Envoyer un email à ${name}`}
+                          aria-label={t(`Envoyer un email à ${name}`, `Email ${name}`)}
                         >
                           <Mail className="h-5 w-5" />
                         </a>
@@ -125,7 +127,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                           href={linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Voir le profil LinkedIn de ${name}`}
+                          aria-label={t(`Voir le profil LinkedIn de ${name}`, `View ${name}'s LinkedIn profile`)}
                         >
                           <Linkedin className="h-5 w-5" />
                         </a>
@@ -135,9 +137,9 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                 </div>
               </div>
 
-              <div className="absolute left-1/2 top-full md:left-auto md:right-16 transform -translate-x-1/2 md:translate-x-0 -translate-y-1/2 z-10">
+              <div className="relative mt-8 flex justify-center lg:mt-0 lg:block lg:absolute lg:top-full lg:right-16 lg:-translate-y-1/2 z-10">
                 <motion.div
-                  className="w-56 h-72 md:w-72 md:h-96 overflow-hidden shadow-2xl bg-background rounded-none"
+                  className="w-56 h-72 lg:w-72 lg:h-96 overflow-hidden shadow-2xl bg-background rounded-none"
                   variants={imageVariants}
                 >
                   <img
@@ -151,18 +153,18 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-              <div className="md:col-span-2 pt-10 md:pt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-2 pt-10 lg:pt-16">
                 <div className="prose max-w-none text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300">
                   <div dangerouslySetInnerHTML={{ __html: longDescription }} />
                 </div>
               </div>
 
-              <div className="md:col-span-1 flex justify-center md:justify-end mt-[160px] md:mt-[210px]">
+              <div className="lg:col-span-1 flex justify-center lg:justify-end lg:mt-[210px]">
                 <Accordion
                   type="single"
                   collapsible
-                  className="w-full max-w-[288px]"
+                  className="w-full lg:max-w-[288px]"
                 >
                   {expertiseAreas.length > 0 && (
                     <AccordionItem
@@ -170,7 +172,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                       className="border-b border-border"
                     >
                       <AccordionTrigger className="font-semibold text-foreground text-left py-4">
-                        Domaines d'expertise
+                        {t("Domaines d'expertise", "Practice areas")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul className="list-none space-y-2 text-sm text-muted-foreground text-left pb-4">
@@ -188,7 +190,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                       className="border-b border-border"
                     >
                       <AccordionTrigger className="font-semibold text-foreground text-left py-4">
-                        Parcours académique
+                        {t("Parcours académique", "Education")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul className="list-none space-y-2 text-sm text-muted-foreground text-left pb-4">
@@ -205,7 +207,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                       className="border-b border-border"
                     >
                       <AccordionTrigger className="font-semibold text-foreground text-left py-4">
-                        Distinctions & classements
+                        {t("Distinctions & classements", "Awards & rankings")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul className="list-none space-y-2 text-sm text-muted-foreground text-left pb-4">
@@ -222,7 +224,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
                       className="border-b border-border"
                     >
                       <AccordionTrigger className="font-semibold text-foreground text-left py-4">
-                        Langues parlées
+                        {t("Langues parlées", "Languages")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul className="list-none space-y-2 text-sm text-muted-foreground text-left pb-4">
