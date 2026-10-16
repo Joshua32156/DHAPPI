@@ -4,7 +4,7 @@ import allyson_allysonmpondo from '@/assets/TeamImages/Allyson.jpg';
 import ariel_arielBolanga from '@/assets/TeamImages/Ariel.jpeg';
 import arnold_arnoldKamdem from '@/assets/TeamImages/Arnold Kamdem.avif';
 import boris_borisMinlo from '@/assets/TeamImages/Boris_Minlo.avif';
-import dieudonne_dieudonnehappi from '@/assets/DIEUDONNÉ HAPPI.avif';
+import dieudonne_dieudonnehappi from '@/assets/dieudonne-happi.avif';
 import estelle_estelleTahoue from '@/assets/TeamImages/Estelle.avif';
 import glory_gloryHuambo from '@/assets/TeamImages/Glory.png';
 import vanessa_graceEpote from '@/assets/VANESSA DE HAPPI.avif';
