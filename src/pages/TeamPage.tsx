@@ -17,6 +17,7 @@ interface TeamMember {
 
 import { getTeamData } from "@/data/team";
 import { useLanguage } from "@/i18n/LanguageContext";
+import teamHero from "@/assets/team-hero.webp";
 
 const TeamPage = () => {
   const { lang, t } = useLanguage();
@@ -69,7 +70,7 @@ const TeamPage = () => {
         {/* Page Header */}
         <section className="relative h-64 overflow-hidden">
           <img
-            src="https://images.pexels.com/photos/17257616/pexels-photo-17257616.jpeg"
+            src={teamHero}
             alt={t("Équipe — D. HAPPI Avocats", "Team — D. HAPPI Attorneys")}
             className="w-full h-full object-cover object-[50%_70%]"
           />
@@ -121,6 +122,8 @@ const TeamPage = () => {
                       <div className="relative">
                         <img
                           src={member.image}
+                          loading="lazy"
+                          decoding="async"
                           alt={member.name}
                           className="w-full h-80 object-cover object-center"
                         />

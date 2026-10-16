@@ -1,19 +1,19 @@
 import { Trophy, Award, Star, Medal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import legalpowerlist from "@/assets/Legalpowerlist.jpg";
+import legalpowerlist from "@/assets/legalpowerlist.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import chambers1 from "@/assets/Chambers 2025.jpg";
 import chambers2 from "@/assets/Chambers 2024.jpg";
 import africabusiness from "@/assets/Africa business.jpg";
 import iflr from "@/assets/iflr.jpg";
-import africalawfirms from "@/assets/africa law firms.jpg";
-import legaledition from "@/assets/Legal edition 2024.jpg";
+import africalawfirms from "@/assets/africa-law-firms.webp";
+import legaledition from "@/assets/legal-edition-2024.webp";
 import powerlist from "@/assets/Powerlist.jpg";
-import awardsHeader from "@/assets/awardsup.jpg";
+import awardsHeader from "@/assets/awardsup.webp";
 import chambers4 from "@/assets/Chambers Global 4.png";
-import chambers3 from "@/assets/Chambers Global Guide VDH.png";
+import chambers3 from "@/assets/chambers-global-guide-vdh.webp";
 import EMEA from "@/assets/EMEA_Leading_firm_2026.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 

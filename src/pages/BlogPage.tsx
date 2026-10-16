@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import com from '@/assets/com.jpg';
+import com from '@/assets/com.webp';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 const BlogPage = () => {
@@ -201,6 +201,8 @@ const BlogPage = () => {
                     <div className="relative">
                       <img
                         src={article.image}
+                        loading="lazy"
+                        decoding="async"
                         alt={article.title}
                         className="w-full h-48 object-cover"
                       />

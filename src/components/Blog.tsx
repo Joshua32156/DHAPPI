@@ -1,7 +1,7 @@
 import { Calendar, User, ArrowRight, Tag, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import covid from "@/assets/covid.avif";
-import focus from "@/assets/focus special.jpeg";
+import focus from "@/assets/focus-special.webp";
 import congrat from "@/assets/congrat.avif";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -96,6 +96,8 @@ const Blog = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={article.image}
+                    loading="lazy"
+                    decoding="async"
                     alt={article.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />

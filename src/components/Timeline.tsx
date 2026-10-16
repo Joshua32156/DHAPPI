@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Building, Briefcase, Globe, Calculator, Scale } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import timeline1985 from '@/assets/timeline-1985.webp';
 
 const Timeline = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -14,7 +15,7 @@ const Timeline = () => {
       title: t("Prestation de serment", "Swearing-in"),
       short: t("Début de la carrière d'un des fondateurs du cabinet, marquant les premières pierres de notre expertise juridique.", "The start of one of our founders' careers, laying the foundations of our legal expertise."),
       detail: t("Le fondateur du cabinet prête serment devant la Cour d'Appel de Yaoundé en présence de ses pairs. Cette journée solennelle marque le début d'une vocation portée par une conviction profonde : rendre le droit accessible et défendre l'équité avec rigueur. Dès ses premières années, il se distingue par sa maîtrise du contentieux civil et sa capacité à naviguer dans les arcanes d'un système juridique en pleine construction.", "The firm's founder is sworn in before the Yaoundé Court of Appeal in the presence of his peers. This solemn day marks the beginning of a vocation driven by a deep conviction: making the law accessible and rigorously upholding fairness. From his very first years, he stands out for his command of civil litigation and his ability to navigate the intricacies of a legal system still under construction."),
-      image: "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg",
+      image: timeline1985,
       color: "text-secondary"
     },
     {
@@ -136,7 +137,7 @@ const Timeline = () => {
                           {/* Icon / Image */}
                           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-primary mb-6 md:ml-auto overflow-hidden">
                             {item.image ? (
-                              <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                              <img loading="lazy" decoding="async" src={item.image} alt={item.title} className="w-full h-full object-cover" />
                             ) : IconComponent ? (
                               <IconComponent className="w-8 h-8 text-white" />
                             ) : null}
@@ -223,7 +224,7 @@ const Timeline = () => {
                           {/* Icon */}
                           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-primary mb-6 mr-auto overflow-hidden">
                             {item.image ? (
-                              <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                              <img loading="lazy" decoding="async" src={item.image} alt={item.title} className="w-full h-full object-cover" />
                             ) : IconComponent ? (
                               <IconComponent className="w-8 h-8 text-white" />
                             ) : null}

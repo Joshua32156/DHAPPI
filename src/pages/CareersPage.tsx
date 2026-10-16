@@ -7,11 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import teamwork from "@/assets/Team work.jpg";
-import projets from "@/assets/Projets.jpg";
-import interprise from "@/assets/Enterprise.jpg";
-import aboutHeader from "@/assets/about-header.jpg";
-import career from "@/assets/carriere.jpg";
+import teamwork from "@/assets/team-work.webp";
+import projets from "@/assets/projets.webp";
+import interprise from "@/assets/enterprise.webp";
+import aboutHeader from "@/assets/about-header.webp";
+import career from "@/assets/carriere.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const CareersPage = () => {
@@ -152,6 +152,8 @@ const CareersPage = () => {
                   <div className="h-2/3 w-full relative overflow-hidden group">
                     <img
                       src={benefit.image}
+                      loading="lazy"
+                      decoding="async"
                       alt={benefit.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />

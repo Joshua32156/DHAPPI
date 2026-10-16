@@ -2,11 +2,11 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import logoBlueRound from "@/assets/Logo blueround.png";
-import heroLawFirm from "@/assets/hero-law-firm.jpg";
-import heroLawFirm2 from "@/assets/hero-law-firm-2.jpg";
-import heroLawFirm3 from "@/assets/hero-law-firm-3.jpg";
-import expertiseHeader from "@/assets/expertise-header.jpg";
-import aboutHeader from "@/assets/about-header.jpg";
+import heroLawFirm from "@/assets/hero-law-firm.webp";
+import heroLawFirm2 from "@/assets/hero-law-firm-2.webp";
+import heroLawFirm3 from "@/assets/hero-law-firm-3.webp";
+import expertiseHeader from "@/assets/expertise-header.webp";
+import aboutHeader from "@/assets/about-header.webp";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -195,7 +195,7 @@ const Expertise = () => {
             <div className="relative">
               {/* Cercle principal avec dégradé soft */}
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-secondary/20 via-primary/10 to-secondary/20 backdrop-blur-sm border border-secondary/20 shadow-2xl flex items-center justify-center">
-                <img src={logoBlueRound} alt="Logo D. HAPPI" />
+                <img loading="lazy" decoding="async" src={logoBlueRound} alt="Logo D. HAPPI" />
               </div>
 
               {/* Cercles décoratifs animés */}

@@ -7,7 +7,7 @@ import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import Us from "@/assets/Us.jpg";
+import Us from "@/assets/us.webp";
 import {Link} from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -101,6 +101,8 @@ const Index = () => {
                   <div className="w-full h-[28rem] md:h-auto aspect-[3/4] bg-gray-200 rounded-3xl border border-white/50 shadow-xl shadow-blue-100/20 overflow-hidden flex items-center justify-center">
                     <img
                       src={Us}
+                      loading="lazy"
+                      decoding="async"
                       alt={t("Cabinet D.HAPPI", "D.HAPPI law firm")}
                       className="object-cover w-full h-full rounded-3xl"
                     />

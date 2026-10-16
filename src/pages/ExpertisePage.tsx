@@ -13,12 +13,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import hiring2 from "@/assets/Hiring2.png";
-import contentieux from "@/assets/ContentieuxRespo.png";
-import douanes from "@/assets/inco3.png";
-import fiscalite from "@/assets/inco2.png";
-import hiring from "@/assets/hiring.png";
-import aboutHeader from "@/assets/about-header.jpg";
+import hiring2 from "@/assets/hiring2.webp";
+import contentieux from "@/assets/contentieuxrespo.webp";
+import douanes from "@/assets/inco3.webp";
+import fiscalite from "@/assets/inco2.webp";
+import hiring from "@/assets/hiring.webp";
+import aboutHeader from "@/assets/about-header.webp";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 import { IconLeft } from "react-day-picker";
 import { useLanguage } from "@/i18n/LanguageContext";

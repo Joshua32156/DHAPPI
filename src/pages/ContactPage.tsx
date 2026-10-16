@@ -6,8 +6,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import aboutHeader from '@/assets/about-header.jpg';
+import aboutHeader from '@/assets/about-header.webp';
 import { useLanguage } from '@/i18n/LanguageContext';
+import contactHero from "@/assets/hero-law-firm-2.webp";
 
 const ContactPage = () => {
   const { t } = useLanguage();
@@ -54,7 +55,7 @@ const ContactPage = () => {
       {/* Page Header */}
       <section className="relative h-64 overflow-hidden">
         <img
-          src="https://www.nia.nih.gov/sites/default/files/niacontact_.jpg"
+          src={contactHero}
           alt={t("Contact — D. HAPPI Avocats", "Contact — D. HAPPI Attorneys")}
           className="w-full h-full object-cover"
         />

@@ -52,6 +52,8 @@ const Footer = () => {
             <div className="mb-6">
               <img
                 src="/Logo gold.png"
+                loading="lazy"
+                decoding="async"
                 alt={t("Logo D.Happi", "D.Happi Logo")}
                 className="h-15 w-auto mb-4"
               />

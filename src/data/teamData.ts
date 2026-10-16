@@ -1,19 +1,19 @@
 // Auto-generated file containing all team members data
-import adamou_adamoumfonzie from '@/assets/TeamImages/Adamou.png';
-import allyson_allysonmpondo from '@/assets/TeamImages/Allyson.jpg';
-import ariel_arielBolanga from '@/assets/TeamImages/Ariel.jpeg';
+import adamou_adamoumfonzie from '@/assets/TeamImages/adamou.webp';
+import allyson_allysonmpondo from '@/assets/TeamImages/allyson.webp';
+import ariel_arielBolanga from '@/assets/TeamImages/ariel.webp';
 import arnold_arnoldKamdem from '@/assets/TeamImages/Arnold Kamdem.avif';
 import boris_borisMinlo from '@/assets/TeamImages/Boris_Minlo.avif';
 import dieudonne_dieudonnehappi from '@/assets/dieudonne-happi.avif';
 import estelle_estelleTahoue from '@/assets/TeamImages/Estelle.avif';
-import glory_gloryHuambo from '@/assets/TeamImages/Glory.png';
+import glory_gloryHuambo from '@/assets/TeamImages/glory.webp';
 import vanessa_graceEpote from '@/assets/VANESSA DE HAPPI.avif';
 import ingrid_ingridTchuem from '@/assets/TeamImages/IngridTchuem.avif';
 import vanessa_jodieNgodem from '@/assets/VANESSA DE HAPPI.avif';
-import tene_joeltene from '@/assets/TeamImages/HomeTeam/Tene.jpg';
+import tene_joeltene from '@/assets/TeamImages/HomeTeam/tene.webp';
 import lionel_lionelngadjui from '@/assets/LIONEL NGADJUI.avif';
 import marie_mariehatho from '@/assets/TeamImages/Marie_Hatho.avif';
-import nyobe_ngoNyobe from '@/assets/TeamImages/HomeTeam/NYOBE.jpg';
+import nyobe_ngoNyobe from '@/assets/TeamImages/HomeTeam/nyobe.webp';
 import vanessa_pascalLavandeOnana from '@/assets/VANESSA DE HAPPI.avif';
 import rosalie_rosalieDipita from '@/assets/TeamImages/Rosalie.avif';
 import rusell_rusellNgako from '@/assets/TeamImages/Rusell_Ngako.avif';

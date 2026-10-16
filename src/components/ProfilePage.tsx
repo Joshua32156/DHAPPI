@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import fontteam from "@/assets/FondTeam.png";
+import fontteam from "@/assets/fondteam.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ExpertData {

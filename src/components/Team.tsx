@@ -59,6 +59,8 @@ const Team = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={member.image}
+                    loading="lazy"
+                    decoding="async"
                     alt={member.name}
                     className="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500"
                   />

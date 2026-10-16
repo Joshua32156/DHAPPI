@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Calendar, BarChart3 } from "lucide-react";
-import heroImage from "@/assets/hero-law-firm.jpg";
-import heroImage2 from "@/assets/hero-law-firm-2.jpg";
-import heroImage3 from "@/assets/hero-law-firm-3.jpg";
+import heroImage from "@/assets/hero-law-firm.webp";
+import heroImage2 from "@/assets/hero-law-firm-2.webp";
+import heroImage3 from "@/assets/hero-law-firm-3.webp";
 import logoGold from "@/assets/Logo gold.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -74,6 +74,7 @@ const Hero = () => {
           <img
             src={slide.image}
             alt={slide.title}
+            loading={index === 0 ? "eager" : "lazy"}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/60"></div>

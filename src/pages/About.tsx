@@ -1,13 +1,14 @@
 import { ArrowRight, Shield, Target, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import aboutHeader from '@/assets/about-header.jpg';
+import aboutHeader from '@/assets/about-header.webp';
 import { Gavel, Briefcase, TrendingUp } from 'lucide-react';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Timeline from '@/components/Timeline';
 import { useLanguage } from '@/i18n/LanguageContext';
+import aboutHero from "@/assets/about-hero.webp";
 
 const About = () => {
   const { t } = useLanguage();
@@ -36,7 +37,7 @@ const About = () => {
       {/* Page Header */}
       <section className="relative h-64 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/7781900/pexels-photo-7781900.jpeg"
+          src={aboutHero}
           alt={t("À propos de D. HAPPI Avocats", "About D. HAPPI Attorneys")}
           className="w-full h-full object-cover object-[50%_67%]"
         />
