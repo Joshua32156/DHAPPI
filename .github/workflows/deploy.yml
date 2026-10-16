@@ -1,0 +1,99 @@
+# Déploiement automatique du site sur le VPS à chaque push sur main.
+#
+# Secrets à créer dans GitHub (Settings > Secrets and variables > Actions) :
+#   VPS_HOST         adresse IP ou nom de domaine du VPS
+#   VPS_USER         utilisateur SSH utilisé pour le déploiement
+#   VPS_SSH_KEY      clé privée SSH (son pendant .pub est dans ~/.ssh/authorized_keys du VPS)
+#   VPS_PATH         dossier servi par le serveur web, ex. /var/www/dhappi
+#   VPS_PORT         (optionnel) port SSH, 22 par défaut
+#   VPS_KNOWN_HOSTS  (recommandé) sortie de `ssh-keyscan -p <port> <host>`, vérifie l'identité du VPS
+
+name: Déploiement VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Un seul déploiement à la fois ; un nouveau push attend la fin du précédent
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Vérifier la configuration
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_PATH: ${{ secrets.VPS_PATH }}
+        run: |
+          missing=""
+          for name in VPS_HOST VPS_USER VPS_SSH_KEY VPS_PATH; do
+            [ -z "${!name}" ] && missing="$missing $name"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Secrets manquants :$missing (Settings > Secrets and variables > Actions)"
+            exit 1
+          fi
+          # Garde-fou : rsync --delete vide le dossier cible, on refuse les chemins dangereux
+          case "$VPS_PATH" in
+            /|/var|/var/www|/home|/root|/etc|/usr|"~"|"~/")
+              echo "::error::VPS_PATH ($VPS_PATH) est trop large, indiquez le dossier dédié au site"
+              exit 1 ;;
+          esac
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier le typage
+        run: npx tsc -p tsconfig.app.json --noEmit
+
+      - name: Compiler le site
+        run: npm run build
+
+      - name: Préparer la connexion SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "$VPS_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            echo "::warning::VPS_KNOWN_HOSTS absent, empreinte du serveur récupérée sans vérification"
+            ssh-keyscan -p "$VPS_PORT" "$VPS_HOST" > ~/.ssh/known_hosts
+          fi
+
+      - name: Envoyer les fichiers sur le VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
+          VPS_PATH: ${{ secrets.VPS_PATH }}
+        run: |
+          SSH="ssh -i ~/.ssh/deploy_key -p $VPS_PORT -o StrictHostKeyChecking=yes"
+          $SSH "$VPS_USER@$VPS_HOST" "mkdir -p '$VPS_PATH'"
+          # --delete-after : les anciens fichiers ne sont supprimés qu'une fois les nouveaux en place
+          rsync -az --delete-after --human-readable --stats \
+            -e "$SSH" dist/ "$VPS_USER@$VPS_HOST:$VPS_PATH/"
+
+      - name: Nettoyer la clé
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
