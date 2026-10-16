@@ -91,7 +91,8 @@ jobs:
           SSH="ssh -i ~/.ssh/deploy_key -p $VPS_PORT -o StrictHostKeyChecking=yes"
           $SSH "$VPS_USER@$VPS_HOST" "mkdir -p '$VPS_PATH'"
           # --delete-after : les anciens fichiers ne sont supprimés qu'une fois les nouveaux en place
-          rsync -az --delete-after --human-readable --stats \
+          # Le VPS tourne sous Nginx : le .htaccess (Apache) n'y sert à rien, on ne l'envoie pas
+          rsync -az --delete-after --human-readable --stats --exclude '.htaccess' --delete-excluded \
             -e "$SSH" dist/ "$VPS_USER@$VPS_HOST:$VPS_PATH/"
 
       - name: Nettoyer la clé
