@@ -20,7 +20,6 @@ import fiscalite from "@/assets/inco2.webp";
 import hiring from "@/assets/hiring.webp";
 import aboutHeader from "@/assets/about-header.webp";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
-import { IconLeft } from "react-day-picker";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const ExpertisePage = () => {
