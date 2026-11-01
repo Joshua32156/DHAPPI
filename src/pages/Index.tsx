@@ -55,8 +55,8 @@ const Index = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <p className="text-slate-700 leading-relaxed text-lg text-justify">
                       {t(
-                        "Depuis 40 ans, le cabinet D.HAPPI Avocats accompagne vos rêves, défend vos droits et se tient à vos côtés dans les moments décisifs. Grâce à notre expertise et à notre engagement, nous avons bâti une relation de confiance durable avec vous, en nous battant pour vos intérêts avec passion et dévouement. Nous avons choisi de privilégier une approche humaine et accessible.",
-                        "For 40 years, D.HAPPI Avocats has supported your ambitions, defended your rights and stood by your side at decisive moments. Through our expertise and commitment, we have built a lasting relationship of trust with you, fighting for your interests with passion and dedication. We have chosen to favour a personal and accessible approach."
+                        "Depuis 41 ans, le cabinet D.HAPPI Avocats accompagne vos rêves, défend vos droits et se tient à vos côtés dans les moments décisifs. Grâce à notre expertise et à notre engagement, nous avons bâti une relation de confiance durable avec vous, en nous battant pour vos intérêts avec passion et dévouement. Nous avons choisi de privilégier une approche humaine et accessible.",
+                        "For 41 years, D.HAPPI Avocats has supported your ambitions, defended your rights and stood by your side at decisive moments. Through our expertise and commitment, we have built a lasting relationship of trust with you, fighting for your interests with passion and dedication. We have chosen to favour a personal and accessible approach."
                       )}
                     </p>
                     <div className="flex flex-col h-full justify-between">

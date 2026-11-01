@@ -5,14 +5,18 @@ import vanessa from "@/assets/VANESSA DE HAPPI.avif";
 import lionel from "@/assets/LIONEL NGADJUI.avif";
 import djontu from "@/assets/ARNOLD KAMDEM.avif";
 import arnold from "@/assets/TeamImages/Arnold Kamdem.avif";
+import freedy from "@/assets/TeamImages/freedy.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getTeamData } from "@/data/team";
 import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton";
 
 const Team = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const teamData = getTeamData(lang);
   const teamMembers = [
     {
       name: "Dieudonné HAPPI",
+      slug: "dieudonne-happi",
       position: t("Associé fondateur", "Founding Partner"),
       specialty: t("Droit des affaires & Contentieux", "Business Law & Litigation"),
       image: dieudonneHappi,
@@ -20,6 +24,7 @@ const Team = () => {
     },
     {
       name: "Vanessa de HAPPI",
+      slug: "vanessa-de-happi",
       position: "Of Counsel",
       specialty: t("Fiscalité & Conformité", "Tax & Compliance"),
       image: vanessa,
@@ -27,10 +32,19 @@ const Team = () => {
     },
     {
       name: "Lionel NGADJUI",
+      slug: "lionel-ngadjui",
       position: t("Avocat senior", "Senior Associate"),
       specialty: t("Changes & Investissements", "Exchange & Investments"),
       image: lionel,
       bio: t("Lionel supervise les activités des départements Conseil et Contentieux.", "Lionel oversees the activities of the Advisory and Litigation departments."),
+    },
+    {
+      name: "Freedy NJOMGANG",
+      slug: "freedy-njomgang",
+      position: "Task Coordinator",
+      specialty: t("Droit des affaires & Propriété intellectuelle", "Business Law & Intellectual Property"),
+      image: freedy,
+      bio: t("Juriste d'affaires, Freedy accompagne depuis plus de 8 ans multinationales, entreprises locales et entrepreneurs.", "A business lawyer, Freedy has advised multinationals, local companies and entrepreneurs for more than 8 years."),
     },
   ];
 
@@ -63,18 +77,30 @@ const Team = () => {
                     loading="lazy"
                     decoding="async"
                     alt={member.name}
-                    className="w-full h-64 object-cover object-top group-hover:scale-110"
+                    className="w-full aspect-[4/5] object-cover object-top group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Social Links */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                    <a
+                      href={`mailto:${teamData[member.slug]?.email ?? "secretariat@dhavocats.com"}`}
+                      aria-label={`E-mail — ${member.name}`}
+                      className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
+                    >
                       <Mail className="h-4 w-4 text-white" />
-                    </button>
-                    <button className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
-                      <Linkedin className="h-4 w-4 text-white" />
-                    </button>
+                    </a>
+                    {teamData[member.slug]?.linkedin && (
+                      <a
+                        href={teamData[member.slug].linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`LinkedIn — ${member.name}`}
+                        className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
+                      >
+                        <Linkedin className="h-4 w-4 text-white" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -103,7 +129,7 @@ const Team = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
-                +20
+                +200
               </div>
               <div className="text-muted-foreground">{t("Professionnels dédiés", "Dedicated professionals")}</div>
             </div>
@@ -121,7 +147,7 @@ const Team = () => {
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
-                {t("40 ans", "40 years")}
+                {t("41 ans", "41 years")}
               </div>
               <div className="text-muted-foreground">{t("D'expérience", "Of experience")}</div>
             </div>

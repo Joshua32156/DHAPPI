@@ -7,6 +7,7 @@ import arnold_arnoldKamdem from '@/assets/TeamImages/Arnold Kamdem.avif';
 import boris_borisMinlo from '@/assets/TeamImages/Boris_Minlo.avif';
 import dieudonne_dieudonnehappi from '@/assets/dieudonne-happi.avif';
 import estelle_estelleTahoue from '@/assets/TeamImages/Estelle.avif';
+import freedy_freedyNjomgang from '@/assets/TeamImages/freedy.webp';
 import glory_gloryHuambo from '@/assets/TeamImages/glory.webp';
 import vanessa_graceEpote from '@/assets/VANESSA DE HAPPI.avif';
 import ingrid_ingridTchuem from '@/assets/TeamImages/IngridTchuem.avif';
@@ -87,7 +88,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: " https://www.linkedin.com/in/adamou-mfonzié-b48aa41b9?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/adamou-mfonzié-b48aa41b9",
   email: "amfonzie@dhavocats.com",
 },
   "allysonmpondo": {
@@ -125,7 +126,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: "https://www.linkedin.com/in/allyson-mpondo-339686246?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/allyson-mpondo-339686246",
   email: "ampondo@dhavocats.com",
 },
   "arielBolanga": {
@@ -294,8 +295,6 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: " ",
-  email: " ",
 },
   "estelleTahoue": {
   name: "Estelle TAHOUÉ",
@@ -333,8 +332,28 @@ export const teamData: Record<string, TeamMember> = {
   //   "Français",
   //   "Anglais",
   // ],
-  linkedin: "https://www.linkedin.com/in/estelle-gaelle-tahoue-129533229?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/estelle-gaelle-tahoue-129533229",
   email: "etahoue@dhavocats.com",
+},
+  "freedy-njomgang": {
+  name: "Freedy NJOMGANG",
+  role: "Task Coordinator",
+  speciality: "Juriste d'affaires",
+  image: freedy_freedyNjomgang,
+  shortDescription:
+    "Juriste d'affaires expérimenté, Freedy accompagne depuis plus de 8 ans multinationales, entreprises locales et entrepreneurs.",
+  longDescription: `
+    <p>Freedy NJOMGANG est un juriste d'affaires expérimenté, cumulant plus de 8 ans d'expérience dans l'accompagnement juridique de multinationales, d'entreprises locales et d'entrepreneurs. Il a développé une expertise approfondie dans divers domaines du droit des affaires et notamment en propriété intellectuelle.</p><br/>
+    <p>En tant que membre fondateur et secrétaire général de l'Association « Intellectual Property Engineering », il a organisé une conférence sur la protection et la valorisation des droits de propriété intellectuelle à l'occasion du Salon Promote 2017, réunissant une cinquantaine de participants entrepreneurs et artisans.</p><br/>
+    <p>Actuellement, il occupe le poste de « Task Coordinator » au sein du Cabinet D. HAPPI Avocats, basé à Douala, classé parmi les 5 meilleurs cabinets d'avocats d'affaires en Afrique Centrale par le magazine Jeune Afrique depuis 3 ans.</p><br/>
+    <p>Freedy NJOMGANG a suivi sa formation académique à l'Université de Yaoundé 2 - Soa et à l'Université Catholique d'Afrique Centrale. Il est marié, père de deux enfants, et se passionne, outre le conseil et l'assistance juridique, pour l'artisanat et le chant choral.</p><br/>
+    `,
+  expertiseAreas: [
+    "Droit des affaires",
+    "Propriété intellectuelle",
+  ],
+  linkedin: "https://www.linkedin.com/in/freedy-njomgang-4b970466",
+  email: "fnjomgang@dhavocats.com",
 },
   "gloryHuambo": {
   name: "Glory HUAMBO",
@@ -405,7 +424,7 @@ export const teamData: Record<string, TeamMember> = {
   //   "Français",
   //   "Anglais",
   // ],
-  linkedin: "https://www.linkedin.com/in/glory-huambo-8b798785?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/glory-huambo-8b798785",
   email: "ghuambo@dhavocats.com",
 },
   "graceEpote": {
@@ -444,7 +463,7 @@ export const teamData: Record<string, TeamMember> = {
 // //     "Français",
 // //     "Anglais",
 // //   ],
-  linkedin: " https://www.linkedin.com/in/grace-epote-50719927a?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/grace-epote-50719927a",
   email: "gepote@dhavocats.com",
 },
   "ingridTchuem": {
@@ -519,7 +538,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: " https://www.linkedin.com/in/jodie-estelle-ngodem-04a60a291?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/jodie-estelle-ngodem-04a60a291",
   email: "jngodem@dhavocats.com",
 },
   "joel-tene": {
@@ -574,8 +593,6 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: "",
-  email: "",
 },
   "lionel-ngadjui": {
   name: "Me Lionel NGADJUI",
@@ -615,7 +632,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "",
 //     "",
 //   ],
-  linkedin: "https://www.linkedin.com/in/lionel-ngadjui-74165132?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/lionel-ngadjui-74165132",
   email: "lionelngadjui@dhavocats.com",
 },
   "marie-hatho": {
@@ -721,7 +738,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: "https://www.linkedin.com/in/esther-péronne-ngo-nyobe-bayiha-12a963193?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/esther-péronne-ngo-nyobe-bayiha-12a963193",
   email: "engonyobe@dhavocats.com",
 },
   "pascalLavandeOnana": {
@@ -761,7 +778,7 @@ export const teamData: Record<string, TeamMember> = {
 //     "Français",
 //     "Anglais",
 //   ],
-  linkedin: " https://www.linkedin.com/in/pascale-lavande-onana-abomo-71aa90250?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/pascale-lavande-onana-abomo-71aa90250",
   email: "plonana@dhavocats.com",
 },
   "rosalieDipita": {
@@ -934,7 +951,7 @@ export const teamData: Record<string, TeamMember> = {
     "Français",
     "Anglais",
   ],
-  linkedin: "https://www.linkedin.com/in/vanessa-de-happi-7240b031?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  linkedin: "https://www.linkedin.com/in/vanessa-de-happi-7240b031",
   email: "Vdehappi@dhavocats.com",
 },
   "SimonMoumbok": {

@@ -24,7 +24,7 @@ const Hero = () => {
     },
     {
       image: heroImage3,
-      title: t("40 ans à vos côtés,", "40 years by your side,"),
+      title: t("41 ans à vos côtés,", "41 years by your side,"),
       subtitle: t("pour défendre vos droits et concrétiser vos rêves", "defending your rights and bringing your ambitions to life"),
     },
   ];

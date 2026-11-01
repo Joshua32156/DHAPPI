@@ -127,13 +127,13 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ expertData }) => {
 
               <div className="relative mt-8 flex justify-center lg:mt-0 lg:block lg:absolute lg:top-full lg:right-16 lg:-translate-y-1/2 z-10">
                 <motion.div
-                  className="relative w-56 h-72 lg:w-72 lg:h-96 overflow-hidden shadow-2xl bg-background rounded-none"
+                  className="relative w-56 lg:w-72 aspect-[4/5] overflow-hidden shadow-2xl bg-background rounded-none"
                   variants={imageVariants}
                 >
                   <ImageWithSkeleton
                     src={image}
                     alt={name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </motion.div>
               </div>

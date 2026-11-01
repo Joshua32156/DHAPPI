@@ -195,6 +195,23 @@ export const teamDataEn: Record<string, TeamMemberTranslation> = {
     `,
   },
 
+  "freedy-njomgang": {
+    role: "Task Coordinator",
+    speciality: "Business Lawyer",
+    shortDescription:
+      "An experienced business lawyer, Freedy has advised multinationals, local companies and entrepreneurs for more than 8 years.",
+    longDescription: `
+    <p>Freedy NJOMGANG is an experienced business lawyer with more than 8 years of experience providing legal support to multinationals, local companies and entrepreneurs. He has developed in-depth expertise in various areas of business law, particularly intellectual property.</p><br/>
+    <p>As a founding member and Secretary General of the "Intellectual Property Engineering" Association, he organised a conference on the protection and promotion of intellectual property rights at the Promote 2017 trade fair, bringing together some fifty entrepreneurs and artisans.</p><br/>
+    <p>He currently serves as Task Coordinator at D. HAPPI Avocats, a Douala-based firm ranked among the top 5 business law firms in Central Africa by Jeune Afrique magazine for the past 3 years.</p><br/>
+    <p>Freedy NJOMGANG studied at the University of Yaoundé II - Soa and the Catholic University of Central Africa. He is married, the father of two children, and, beyond legal advice and assistance, is passionate about crafts and choral singing.</p><br/>
+    `,
+    expertiseAreas: [
+      "Business law",
+      "Intellectual property",
+    ],
+  },
+
   "gloryHuambo": {
     role: "Of Counsel",
     speciality: "Litigation & Arbitration",

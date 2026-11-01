@@ -13,6 +13,8 @@ interface TeamMember {
   image: string;
   description: string;
   link: string;
+  linkedin?: string;
+  email?: string;
 }
 
 import { getTeamData } from "@/data/team";
@@ -31,6 +33,8 @@ const TeamPage = () => {
     image: data.image,
     description: data.description || (data.shortDescription ? (data.shortDescription.length > 100 ? data.shortDescription.substring(0, 100) + "..." : data.shortDescription) : ""),
     link: `/team/${slug}`,
+    linkedin: data.linkedin,
+    email: data.email,
   }));
 
   // VARIANTES D'ANIMATION
@@ -126,7 +130,7 @@ const TeamPage = () => {
                           loading="lazy"
                           decoding="async"
                           alt={member.name}
-                          className="w-full h-80 object-cover object-center"
+                          className="w-full aspect-[4/5] object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 text-white">
@@ -157,21 +161,26 @@ const TeamPage = () => {
                             asChild
                           >
                             <a
-                              href={`mailto:contact@dlega.com?subject=${t("Contact pour", "Contact for")} ${member.name}`}
+                              href={`mailto:${member.email ?? "secretariat@dhavocats.com"}?subject=${t("Contact pour", "Contact for")} ${member.name}`}
+                              onClick={(e) => e.stopPropagation()}
                             >
                               <Mail className="h-4 w-4 mr-2" />
                               Contact
                             </a>
                           </Button>
-                          <Button size="sm" variant="outline" asChild>
-                            <a
-                              href="#"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Linkedin className="h-4 w-4" />
-                            </a>
-                          </Button>
+                          {member.linkedin && (
+                            <Button size="sm" variant="outline" asChild>
+                              <a
+                                href={member.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`LinkedIn — ${member.name}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Linkedin className="h-4 w-4" />
+                              </a>
+                            </Button>
+                          )}
                         </div>
                       </CardContent>
                     </Card>
